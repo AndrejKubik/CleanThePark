@@ -1,0 +1,470 @@
+fileFormatVersion: 2
+guid: 59674fdcd41e1d54696e70bbfaace419
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: shekeli_sprite_sheet-01_0
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 1188
+        width: 979
+        height: 716
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 330.86523, y: -7.6182594}
+        - {x: 453.7168, y: 96.99834}
+        - {x: 483.5996, y: 131.87054}
+        - {x: 489.5, y: 143.4946}
+        - {x: 489.5, y: 166.74274}
+        - {x: 222.95508, y: 336.12198}
+        - {x: 179.791, y: 336.12198}
+        - {x: 45.318348, y: 223.20248}
+        - {x: -32.709, y: 199.95436}
+        - {x: -210.34573, y: 123.567635}
+        - {x: -358.09964, y: 53.823235}
+        - {x: -424.5059, y: 8.98755}
+        - {x: -489.25198, y: -45.81162}
+        - {x: -489.25198, y: -77.362656}
+        - {x: -474.31058, y: -102.27137}
+        - {x: -419.52542, y: -157.07054}
+        - {x: -313.27542, y: -261.68713}
+        - {x: -215.3262, y: -358}
+        - {x: -197.06448, y: -358}
+        - {x: -37.68947, y: -163.71286}
+        - {x: 120.02538, y: -74.0415}
+        - {x: 141.6074, y: -77.362656}
+      physicsShape: []
+      tessellationDetail: 0.06
+      bones: []
+      spriteID: b93a49056154956469b01a73dfe97697
+      internalID: -1293913542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shekeli_sprite_sheet-01_1
+      rect:
+        serializedVersion: 2
+        x: 1413
+        y: 1453
+        width: 1143
+        height: 382
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 547.2285, y: -131.1942}
+        - {x: 479.1621, y: -119.57014}
+        - {x: 422.7168, y: -96.32201}
+        - {x: 417.73633, y: -83.03735}
+        - {x: 276.62305, y: -24.917025}
+        - {x: 268.32227, y: -13.292958}
+        - {x: 208.55663, y: 14.936917}
+        - {x: 82.38475, y: 83.02074}
+        - {x: 77.40428, y: 97.965965}
+        - {x: 65.78319, y: 94.6448}
+        - {x: 32.580063, y: 107.92945}
+        - {x: -37.146503, y: 139.48048}
+        - {x: -118.49416, y: 157.74687}
+        - {x: -196.52151, y: 166.04977}
+        - {x: -307.75198, y: 166.04977}
+        - {x: -330.99417, y: 164.3892}
+        - {x: -390.7598, y: 154.42572}
+        - {x: -463.80667, y: 126.19584}
+        - {x: -482.0684, y: 126.19584}
+        - {x: -511.9512, y: 116.23235}
+        - {x: -545.15436, y: 91.32364}
+        - {x: -545.15436, y: 84.68131}
+        - {x: -528.5528, y: 71.39667}
+        - {x: -299.4512, y: -59.789223}
+        - {x: -251.30667, y: -88.0191}
+        - {x: -229.72464, y: -86.35852}
+        - {x: -133.43558, y: -46.504578}
+        - {x: -23.865253, y: -4.9900537}
+        - {x: 9.3378725, y: -1.6688919}
+        - {x: 25.939436, y: 4.9734316}
+        - {x: 62.462875, y: -29.898767}
+        - {x: 65.78319, y: -43.183414}
+        - {x: 113.92772, y: -76.395035}
+        - {x: 113.92772, y: -88.0191}
+        - {x: 115.587875, y: -93.00084}
+        - {x: 165.39256, y: -112.92781}
+        - {x: 185.31444, y: -122.8913}
+        - {x: 235.11913, y: -131.1942}
+        - {x: 324.76758, y: -152.78175}
+        - {x: 404.45508, y: -162.74524}
+        - {x: 538.92773, y: -162.74524}
+        - {x: 570.4707, y: -161.08466}
+        - {x: 571.5, y: -157.7635}
+        - {x: 571.5, y: -146.13943}
+      physicsShape: []
+      tessellationDetail: 0.12
+      bones: []
+      spriteID: 3177128fa8ee87341be250b3db59f277
+      internalID: -906122635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shekeli_sprite_sheet-01_2
+      rect:
+        serializedVersion: 2
+        x: 2518
+        y: 1254
+        width: 813
+        height: 551
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -346.5998, y: 254.33028}
+        - {x: -406.36542, y: 246.02737}
+        - {x: -406.36542, y: 131.44728}
+        - {x: -14.568521, y: -248.82574}
+        - {x: 406.5, y: -248.82574}
+        - {x: 406.5, y: -230.55936}
+        - {x: 25.275232, y: 254.33028}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5994fef147135a4b85166adcd985635
+      internalID: 1223002310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shekeli_sprite_sheet-01_3
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 955
+        width: 939
+        height: 402
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -305.1133, y: 193.62369}
+        - {x: -442.90628, y: 22.58386}
+        - {x: -447.88675, y: 15.941536}
+        - {x: -447.88675, y: -188.30992}
+        - {x: 375.55078, y: -188.30992}
+        - {x: 450.2578, y: -45.499958}
+        - {x: 450.2578, y: 59.116642}
+        - {x: 368.91016, y: 193.62369}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2559d751e451d30408b01668d0ab54db
+      internalID: -2036733303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shekeli_sprite_sheet-01_4
+      rect:
+        serializedVersion: 2
+        x: 1723
+        y: 339
+        width: 559
+        height: 858
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -171.23828, y: 426.18054}
+        - {x: -262.54688, y: 143.88177}
+        - {x: -262.54688, y: -384.18295}
+        - {x: -209.42188, y: -425.69748}
+        - {x: 279.5, y: -425.69748}
+        - {x: 279.5, y: 353.11496}
+        - {x: 157.47267, y: 426.18054}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fa63071cbea9824f92fd16c4eecf16e
+      internalID: 1362298085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shekeli_sprite_sheet-01_5
+      rect:
+        serializedVersion: 2
+        x: 2329
+        y: 816
+        width: 832
+        height: 509
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -62.455074, y: 250.57217}
+        - {x: -238.43164, y: 254.5}
+        - {x: -412.74805, y: 254.5}
+        - {x: -339.70117, y: -131.36143}
+        - {x: -181.98633, y: -250.92326}
+        - {x: 284.5176, y: -250.92326}
+        - {x: 416, y: -149.62782}
+        - {x: 416, y: -118.07679}
+        - {x: -32.572258, y: 230.6452}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31c5837c02274ee4db4d5164a2818d62
+      internalID: -263505292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shekeli_sprite_sheet-01_6
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 208
+        width: 736
+        height: 740
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -349.89066, y: 369.07635}
+        - {x: -331.62894, y: 35.299583}
+        - {x: -79.28518, y: -298.47717}
+        - {x: 28.624979, y: -339.9917}
+        - {x: 128.23436, y: -351.61578}
+        - {x: 275.98828, y: -351.61578}
+        - {x: 368, y: -326.70706}
+        - {x: 368, y: -137.40083}
+        - {x: -190.51566, y: 369.07635}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17dc95175f4590940a20db09a8b7e110
+      internalID: 908351842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shekeli_sprite_sheet-01_7
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 77
+        width: 737
+        height: 692
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -75.06837, y: 317.78424}
+        - {x: -116.57228, y: 317.78424}
+        - {x: -368.5, y: 227}
+        - {x: -368.5, y: 133.45976}
+        - {x: -290.8887, y: -7.689613}
+        - {x: -3.681648, y: -346}
+        - {x: 147.39258, y: -346}
+        - {x: 368.5, y: -210.28049}
+        - {x: 368.5, y: -4.3684506}
+        - {x: 306.76758, y: 178.29546}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7922d84761adb2e4cb94c6ae47c2b71d
+      internalID: 212454933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shekeli_sprite_sheet-01_8
+      rect:
+        serializedVersion: 2
+        x: 2277
+        y: 159
+        width: 963
+        height: 499
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -111.13482, y: 249.5}
+        - {x: -195.8028, y: 249.5}
+        - {x: -481.34967, y: 155.67885}
+        - {x: -481.34967, y: 87.59503}
+        - {x: -444.82623, y: 22.83238}
+        - {x: -14.845754, y: -249.5}
+        - {x: 323.82614, y: -249.5}
+        - {x: 481.5, y: -189.72198}
+        - {x: 481.5, y: -128.28049}
+        - {x: 338.76755, y: 52.722836}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e401f03578a4e140a3f73d1a3172f24
+      internalID: -1594301438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 11811cb6a2592f24780b2a6fedaeb149
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      shekeli_sprite_sheet-01_1: -906122635
+      shekeli_sprite_sheet-01_5: -263505292
+      shekeli_sprite_sheet-01_6: 908351842
+      shekeli_sprite_sheet-01_4: 1362298085
+      shekeli_sprite_sheet-01_0: -1293913542
+      shekeli_sprite_sheet-01_2: 1223002310
+      shekeli_sprite_sheet-01_7: 212454933
+      shekeli_sprite_sheet-01_3: -2036733303
+      shekeli_sprite_sheet-01_8: -1594301438
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
