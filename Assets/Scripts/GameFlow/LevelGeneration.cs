@@ -14,8 +14,6 @@ public class LevelGeneration : MonoBehaviour
 
     public List<GameObject> environmentPrefabs;
 
-    Vector3 randomSpawnPosition;
-
     public List<Transform> environmentSpawnPositions;
 
     private void Start()
@@ -32,19 +30,9 @@ public class LevelGeneration : MonoBehaviour
 
         GenerateEnvironment(environmentPrefabs, environmentSpawnPositions.Count, environmentSpawnPositions);
     }
-    //private void GenerateGarbage(GameObject objectToSpawn, int numberOfObjects, Collider region)
-    //{
-    //    for (int i = 0; i < numberOfObjects; i++) //for every object to spawn
-    //    {
-    //        Vector3 randomSpawnPosition = RandomPosition(region); //get the random spawn position
-    //        usedPositions.Add(randomSpawnPosition); //store it in the used list to prevent overlaping
-    //        Instantiate(objectToSpawn, randomSpawnPosition, transform.rotation); //spawn the chosen object at the gotten position
-    //    }
-    //}
 
     private void GenerateEnvironment(List<GameObject> objectsToSpawn, int numberOfObjects, List<Transform> positions)
     {
-        Debug.Log("kurac");
         for (int i = 0; i < numberOfObjects; i++) //for every object to spawn
         {
             int randomIndex = Random.Range(0, positions.Count); //choose a random element from the position list
@@ -60,7 +48,7 @@ public class LevelGeneration : MonoBehaviour
     {
         for (int i = 0; i < numberOfObjects; i++) //for every object to spawn
         {
-            GetRandomPoint(spawnRegion);
+            Vector3 randomSpawnPosition = RandomPosition(spawnRegion); //get the random position in the chosen region
             Instantiate(objectToSpawn, randomSpawnPosition, transform.rotation); //spawn the chosen object at the gotten position
         }
     }
@@ -76,42 +64,7 @@ public class LevelGeneration : MonoBehaviour
         return randomSpawnPosition;
     }
 
-    public void GetRandomPoint(Collider region)
-    {
-        RaycastHit hit;
-
-        randomSpawnPosition = RandomPosition(region);
-
-        if (Physics.Raycast(randomSpawnPosition, Vector3.down, out hit, 10f))
-        {
-            Vector3 randomPosition = new Vector3(hit.point.x, 0f, hit.point.z);
-
-            //if (hit.collider.gameObject.layer == 3)
-            //{
-            //    Debug.Log("hit ground");
-                
-            //    if (!usedPositions.Contains(randomPosition))
-            //    {
-            //        randomSpawnPosition = randomPosition;
-            //        usedPositions.Add(randomPosition); //store it in the used list to prevent overlaping
-            //    }
-            //    else if (hit.collider.gameObject.layer == 6)
-            //    {
-            //        Debug.Log("kurac");
-            //        GetRandomPoint(region);
-            //    }
-            //}
-
-            if(hit.collider.gameObject.layer == 6)
-            {
-                GetRandomPoint(region);
-            }
-            else
-            {
-                randomSpawnPosition = randomPosition;
-            }
-        }
-    }
+    #region Mercy M'Lord
 
     //public Vector3 RandomGarbagePosition()
     //{
@@ -214,4 +167,5 @@ public class LevelGeneration : MonoBehaviour
 
     //    return new Vector3(randomX, 0f, randomZ);
     //}
+    #endregion
 }
