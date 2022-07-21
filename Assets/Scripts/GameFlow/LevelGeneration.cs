@@ -13,12 +13,10 @@ public class LevelGeneration : MonoBehaviour
     public int garbageCount;
 
     public List<GameObject> environmentPrefabs;
-    public int environmentCount;
 
     Vector3 randomSpawnPosition;
 
-    //public float environmentSideRange;
-    //public float environemntVerticalRange;
+    public List<Transform> environmentSpawnPositions;
 
     private void Start()
     {
@@ -32,13 +30,7 @@ public class LevelGeneration : MonoBehaviour
             GenerateObject(garbagePrefabs[i], garbageCount, garbageRegion);
         }
 
-        //for (int i = 0; i < environmentRegions.Count; i++)
-        //{
-        //    for (int j = 0; j < environmentPrefabs.Count; j++)
-        //    {
-        //        GenerateObject(environmentPrefabs[j], environmentCount, environmentRegions[i]);
-        //    }
-        //}
+        GenerateEnvironment(environmentPrefabs, environmentSpawnPositions.Count, environmentSpawnPositions);
     }
     //private void GenerateGarbage(GameObject objectToSpawn, int numberOfObjects, Collider region)
     //{
@@ -50,15 +42,19 @@ public class LevelGeneration : MonoBehaviour
     //    }
     //}
 
-    //private void GenerateEnvironment(GameObject objectToSpawn, int numberOfObjects, Collider region)
-    //{
-    //    for (int i = 0; i < numberOfObjects; i++) //for every object to spawn
-    //    {
-    //        Vector3 randomSpawnPosition = RandomPosition(region); //get the random spawn position
-    //        usedPositions.Add(randomSpawnPosition); //store it in the used list to prevent overlaping
-    //        Instantiate(objectToSpawn, randomSpawnPosition, transform.rotation); //spawn the chosen object at the gotten position
-    //    }
-    //}
+    private void GenerateEnvironment(List<GameObject> objectsToSpawn, int numberOfObjects, List<Transform> positions)
+    {
+        Debug.Log("kurac");
+        for (int i = 0; i < numberOfObjects; i++) //for every object to spawn
+        {
+            int randomIndex = Random.Range(0, positions.Count); //choose a random element from the position list
+            Vector3 randomSpawnPosition = positions[randomIndex].position; //get the random spawn position
+            positions.RemoveAt(randomIndex); //remove the used position from the list
+
+            randomIndex = Random.Range(0, objectsToSpawn.Count); //choose a random element from the prefabs list
+            Instantiate(objectsToSpawn[randomIndex], randomSpawnPosition, transform.rotation); //spawn the chosen object at the gotten position
+        }
+    }
 
     private void GenerateObject(GameObject objectToSpawn, int numberOfObjects, Collider spawnRegion)
     {
