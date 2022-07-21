@@ -45,7 +45,7 @@ public class UIController : MonoBehaviour
 
     public static int speedUpgradeCost;
     public static int vacuumUpgradeCost;
-    public static int capacityUpgradeCost ;
+    public static int capacityUpgradeCost;
 
     public Animator speedAnim;
     public Animator vacuumAnim;
@@ -58,10 +58,6 @@ public class UIController : MonoBehaviour
     private void Start()
     {
         UpdateShopUI();
-        //if (GameManager.scenesLoaded <= 1)
-        //{
-        //    GameManager.scenesLoaded++;
-        //}
 
         if (GameManager.scenesLoaded >= 2)
         {
@@ -75,8 +71,6 @@ public class UIController : MonoBehaviour
             Time.timeScale = 1f; //resume game time
             startMenu.SetActive(false); //hide the start menu
         }
-
-        //if (GameManager.currentLevel == 1) ResetShop(); //on the first level reset shop
     }
 
     public void ResetShop()
@@ -109,7 +103,7 @@ public class UIController : MonoBehaviour
         menuButton.SetActive(true); //show the pause button
         Time.timeScale = 1f; //resume game time
 
-        AnalyticsManagerr.instance.LevelStart();
+        AnalyticsManagerr.instance.LevelStart(); //trigger the analytics level start event
     }
 
     public void PauseGame()
@@ -132,7 +126,7 @@ public class UIController : MonoBehaviour
     {
         GameManager.currentLevel = 1; //set the level number to 1
         Destroy(GameObject.FindGameObjectWithTag("Music")); //if the game is started over, start the music from the start
-        AnalyticsManagerr.instance.LevelStart();
+        AnalyticsManagerr.instance.LevelStart(); //trigger the analytics level start event
 
         SceneManager.LoadScene(0); //load the first level 
     }
@@ -140,27 +134,28 @@ public class UIController : MonoBehaviour
     public void NextLevel()
     {
         GameManager.currentLevel++; //increment the level number
-        GameManager.instance.SaveGame();
-        AnalyticsManagerr.instance.LevelStart();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //load the next level 
+        GameManager.instance.SaveGame(); //save the game data
+        AnalyticsManagerr.instance.LevelStart(); //trigger the analytics level start event
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); //reload the scene
     }
 
     public void LoadLevel(int levelNumber)
     {
-        Destroy(GameObject.FindGameObjectWithTag("Music")); //start the music from the start
-        SceneManager.LoadScene(levelNumber);
+        //Destroy(GameObject.FindGameObjectWithTag("Music")); //start the music from the start
+        //SceneManager.LoadScene(levelNumber);
     }
 
     public void UpgradeSpeed()
     {
-        if (GameManager.moneyTotal >= speedUpgradeCost)
+        if (GameManager.moneyTotal >= speedUpgradeCost) //if the player has enough money
         {
-            if (timesSpeedUpgraded < maxUpgrades)
+            if (timesSpeedUpgraded < maxUpgrades) //if the stat is not at max level already
             {
                 GameManager.speed += GameManager.instance.speedUpg; //increase the player's speed by the chose value
                 GameManager.wheelSpeed += GameManager.instance.wheelSpeedUpg; //rotate wheels faster
-                StartCoroutine(ShowPopUp(speedAnim.gameObject, speedAnim));
-                Debug.Log("Speed upgraded: " + GameManager.speed);
+                StartCoroutine(ShowPopUp(speedAnim.gameObject, speedAnim)); //show the text popup
+
+                Debug.Log("Speed upgraded: " + GameManager.speed); //print current speed in the console
 
                 BuyUpgrade(speedUpgradeCost); //do the transaction
 
@@ -169,33 +164,36 @@ public class UIController : MonoBehaviour
 
                 if (timesSpeedUpgraded == (maxUpgrades - 1)) speedMax.SetActive(true); //show the max level sign
 
-                SoundManager.instance.PlayUpgSound();
+                SoundManager.instance.PlayUpgSound(); //play the upgrade sound
 
                 timesSpeedUpgraded++; //increment the counter for speed upgrades
             }
-            else
+            else //if the player has the stat at max level
             {
-                Debug.Log("Reached max speed already");
+                Debug.Log("Reached max speed already"); //print the max level warning in the console
             }
         }
-        else
+        else //if the player does not have enough money
         {
-            GameManager.instance.moneyAnimator.Play("MoneyNoBlob");
-            SoundManager.instance.PlayNoMoneySound();
+            GameManager.instance.moneyAnimator.Play("MoneyNoBlob"); //play the no money ui animation
+            SoundManager.instance.PlayNoMoneySound(); //play the no money sound
         }
     }
 
     public void UpgradeVacuum()
     {
-        if (GameManager.moneyTotal >= vacuumUpgradeCost)
+        if (GameManager.moneyTotal >= vacuumUpgradeCost) //if the player has enough money
         {
-            if (timesVacuumUpgraded < maxUpgrades)
+            if (timesVacuumUpgraded < maxUpgrades) //if the stat is not at the max level
             {
                 GameManager.instance.TurnVacuumOff(); //hide the current vacuum indicator
                 GameManager.vacuumWidth++; //change the vacuum model to the next level model
                 GameManager.pullSpeed += GameManager.instance.pullUpg; //increase the pulling strength
-                StartCoroutine(ShowPopUp(vacuumAnim.gameObject, vacuumAnim));
-                Debug.Log("current vacuum: " + GameManager.vacuumWidth);
+
+                StartCoroutine(ShowPopUp(vacuumAnim.gameObject, vacuumAnim)); //show the text popup
+
+                Debug.Log("current vacuum: " + GameManager.vacuumWidth); //print the current vacuum number in the console
+
                 if (GameManager.instance.canPull) GameManager.instance.TurnVacuumOn(); //if the player doesn't have max stacks on his back, show the next level vacuum indicator
 
                 BuyUpgrade(vacuumUpgradeCost); //do the transaction
@@ -205,31 +203,33 @@ public class UIController : MonoBehaviour
 
                 if (timesVacuumUpgraded == (maxUpgrades - 1)) vacuumMax.SetActive(true); //show the max level sign
 
-                SoundManager.instance.PlayUpgSound();
+                SoundManager.instance.PlayUpgSound(); //play the upgrade sound
 
                 timesVacuumUpgraded++; //increment the counter for the vacuum upgrades
             }
-            else
+            else //if the stat is already at max level
             {
-                Debug.Log("Reached max vacuum already");
+                Debug.Log("Reached max vacuum already"); //print the warning in the console
             }
         }
-        else
+        else //if the player does not have enough money
         {
-            GameManager.instance.moneyAnimator.Play("MoneyNoBlob");
-            SoundManager.instance.PlayNoMoneySound();
+            GameManager.instance.moneyAnimator.Play("MoneyNoBlob"); //play the no money animation
+            SoundManager.instance.PlayNoMoneySound(); //play the no money sound
         }
     }
 
     public void UpgradeCapacity()
     {
-        if (GameManager.moneyTotal >= capacityUpgradeCost)
+        if (GameManager.moneyTotal >= capacityUpgradeCost) //if the player has enough money
         {
-            if (timesCapacityUpgraded < maxUpgrades)
+            if (timesCapacityUpgraded < maxUpgrades) //if the stat is not already at max level
             {
                 GameManager.capacity += GameManager.instance.capacityUpg; //increase player's capacity by the set ammount
-                Debug.Log("Capacity upgraded: " + GameManager.capacity);
-                StartCoroutine(ShowPopUp(capacityAnim.gameObject, capacityAnim));
+
+                Debug.Log("Capacity upgraded: " + GameManager.capacity); //print the current capacity number in the console
+
+                StartCoroutine(ShowPopUp(capacityAnim.gameObject, capacityAnim)); //show the text popup
 
                 BuyUpgrade(capacityUpgradeCost); //do the transaction
 
@@ -238,19 +238,19 @@ public class UIController : MonoBehaviour
 
                 if (timesCapacityUpgraded == (maxUpgrades - 1)) capacityMax.SetActive(true); //show the max level sign
 
-                SoundManager.instance.PlayUpgSound();
+                SoundManager.instance.PlayUpgSound(); //play the upgrade sound
 
                 timesCapacityUpgraded++; //increment the counter for the capacity upgrades
             }
-            else
+            else //if the stat is already at max level
             {
-                Debug.Log("Reached max capacity already");
+                Debug.Log("Reached max capacity already"); //print the warning in the console
             }
         }
-        else
+        else //if the player does not have enough money
         {
-            GameManager.instance.moneyAnimator.Play("MoneyNoBlob");
-            SoundManager.instance.PlayNoMoneySound();
+            GameManager.instance.moneyAnimator.Play("MoneyNoBlob"); //play the no money animation
+            SoundManager.instance.PlayNoMoneySound(); //play the no money sound
         }
     }
 
@@ -258,10 +258,12 @@ public class UIController : MonoBehaviour
     {
         moneyCount.text = GameManager.moneyTotal.ToString(); //update the money in UI
 
+        //update the shop cost texts
         speedCostNumber.text = speedUpgradeCost.ToString();
         vacuumCostNumber.text = vacuumUpgradeCost.ToString();
         capacityCostNumber.text = capacityUpgradeCost.ToString();
 
+        //show the max level text if a stat is at max level
         if (timesSpeedUpgraded >= maxUpgrades) speedMax.SetActive(true);
         if (timesVacuumUpgraded >= maxUpgrades) vacuumMax.SetActive(true);
         if (timesCapacityUpgraded >= maxUpgrades) capacityMax.SetActive(true);

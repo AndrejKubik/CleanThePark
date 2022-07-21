@@ -8,11 +8,11 @@ public class GuideArrowRotation : MonoBehaviour
 
     private void Start()
     {
-        target = GameManager.instance.deliveryIndicator.transform.position;
+        target = GameManager.instance.deliveryIndicator.transform.position; //get the target reference from the game manager
     }
 
     private void Update()
     {
-        transform.LookAt(target);
+        transform.LookAt(target); //turn towards the target
     }
 }

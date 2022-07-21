@@ -17,22 +17,35 @@ public class SoundManager : MonoBehaviour
     public AudioSource audio;
 
     public AudioClip vacuumSound;
+    public float vacuumSoundVolume = 0.8f;
+
     public AudioClip deliverySound;
+    public float deliverySoundVolume = 2f;
+
     public AudioClip dumpsterSound;
+    public float dumpsterSoundVolume = 1.5f;
 
     public AudioClip levelClearSound;
+    public float levelClearSoundVolume = 3f;
+
     public AudioClip levelEndSound;
+    public float levelEndSoundVolume = 3f;
 
     public AudioClip noMoneySound;
-    public AudioClip fullCapSound;
-    public AudioClip upgradeSound;
+    public float noMoneySoundVolume = 2f;
 
-    public void PlayVacuumSound() { audio.PlayOneShot(vacuumSound, 0.8f); }
-    public void PlayDeliverySound() { audio.PlayOneShot(deliverySound, 2f); }
-    public void PlayDumpsterSound() { audio.PlayOneShot(dumpsterSound, 1.5f); }
-    public void PlayLevelClearSound() { audio.PlayOneShot(levelClearSound, 3f); }
-    public void PlayLevelEndSound() { audio.PlayOneShot(levelEndSound, 3f); }
-    public void PlayNoMoneySound() { audio.PlayOneShot(noMoneySound, 2f); }
-    public void PlayFullCapSound() { audio.PlayOneShot(fullCapSound, 1.5f); }
-    public void PlayUpgSound() { audio.PlayOneShot(upgradeSound, 1.5f); }
+    public AudioClip fullCapSound;
+    public float fullCapSoundVolume = 1.5f;
+
+    public AudioClip upgradeSound;
+    public float upgradeSoundVolume = 1.5f;
+
+    public void PlayVacuumSound() { audio.PlayOneShot(vacuumSound, vacuumSoundVolume); }
+    public void PlayDeliverySound() { audio.PlayOneShot(deliverySound, deliverySoundVolume); }
+    public void PlayDumpsterSound() { audio.PlayOneShot(dumpsterSound, dumpsterSoundVolume); }
+    public void PlayLevelClearSound() { audio.PlayOneShot(levelClearSound, levelClearSoundVolume); }
+    public void PlayLevelEndSound() { audio.PlayOneShot(levelEndSound, levelEndSoundVolume); }
+    public void PlayNoMoneySound() { audio.PlayOneShot(noMoneySound, noMoneySoundVolume); }
+    public void PlayFullCapSound() { audio.PlayOneShot(fullCapSound, fullCapSoundVolume); }
+    public void PlayUpgSound() { audio.PlayOneShot(upgradeSound, upgradeSoundVolume); }
 }
