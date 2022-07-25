@@ -5,12 +5,11 @@ using UnityEngine;
 public class LevelGeneration : MonoBehaviour
 {
     public Collider garbageRegion;
-    public List<Collider> environmentRegions;
 
     public List<Vector3> usedPositions;
 
     public List<GameObject> garbagePrefabs;
-    public int garbageCount;
+    private int garbageCount;
 
     public List<GameObject> environmentPrefabs;
 
@@ -18,7 +17,10 @@ public class LevelGeneration : MonoBehaviour
 
     private void Start()
     {
+        LoadLevelData();
         GenerateLevel();
+        GameManager.instance.levelStarted = true;
+        Debug.Log("garbage spawned: " + GameManager.instance.garbageCount);
     }
 
     public void GenerateLevel()
@@ -50,6 +52,7 @@ public class LevelGeneration : MonoBehaviour
         {
             Vector3 randomSpawnPosition = RandomPosition(spawnRegion); //get the random position in the chosen region
             Instantiate(objectToSpawn, randomSpawnPosition, transform.rotation); //spawn the chosen object at the gotten position
+            GameManager.instance.garbageCount++; //increment the objective trash count
         }
     }
 
@@ -62,6 +65,13 @@ public class LevelGeneration : MonoBehaviour
         Vector3 randomSpawnPosition = new Vector3(xRandom, 0f, zRandom); //combine the 2 gotten coordinates to get the final position Vector
 
         return randomSpawnPosition;
+    }
+
+    public void LoadLevelData()
+    {
+        garbagePrefabs = GameManager.instance.currentLevelData.garbagePrefabs;
+        garbageCount = GameManager.instance.currentLevelData.garbageTotalCount;
+        environmentPrefabs = GameManager.instance.currentLevelData.environmentCommonPrefabs;
     }
 
     #region Mercy M'Lord

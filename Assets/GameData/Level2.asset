@@ -10,17 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 634246a402212b84a9aee2b08786613f, type: 3}
-  m_Name: Level1
+  m_Name: Level2
   m_EditorClassIdentifier: 
-  levelName: Level 1
+  levelName: Level 2
   playAreaChunkPrefab: {fileID: 7201409574730769994, guid: a65867ac8ef924742b6ad8ad154a456a, type: 3}
-  garbageTotalCount: 20
+  garbageTotalCount: 15
   garbagePrefabs:
   - {fileID: 6481278337204455400, guid: 1b03a05180cb1134bb4e800eca4efa01, type: 3}
   - {fileID: 5669077611787674431, guid: f5aaa5d1912954e4c8b870bc41c2950f, type: 3}
+  - {fileID: 5591851716254935540, guid: 2fe0e29085b070c488c46d9c57290c46, type: 3}
   commonEnvironmentCount: 44
   environmentCommonPrefabs:
   - {fileID: 796540515540989501, guid: eecebdbe8e5ef2b4c815ba5ec2b5b40c, type: 3}
   - {fileID: 3985808441985414686, guid: bb9da3eb5a37dfb40829fcd62f5a643a, type: 3}
+  - {fileID: 2882806626979443331, guid: 4e9b5629434939f4a9fbccd66f500501, type: 3}
   eyeCandyEnvironmentCount: 0
   environmentEyeCandyPrefabs: []

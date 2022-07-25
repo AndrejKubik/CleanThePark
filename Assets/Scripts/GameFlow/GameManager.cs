@@ -73,6 +73,9 @@ public class GameManager : MonoBehaviour
     public int destroyCounter;
     public bool levelClear;
     public bool levelFinished;
+    public bool levelStarted;
+    public List<Level> levels;
+    public Level currentLevelData;
 
     [Header(">>>>>>>>>>>>>>>| UPGRADE EFFECTIVE VALUES |<<<<<<<<<<<<<<<")]
 
@@ -101,6 +104,8 @@ public class GameManager : MonoBehaviour
 
         LoadGame(); //load in the game data
 
+        currentLevelData = levels[currentLevel - 1]; //load in the data from the current level from the list
+
         //reset the game counters
         collectedCount = 0;
         stackCount = 0;
@@ -112,6 +117,7 @@ public class GameManager : MonoBehaviour
         canMove = true;
 
         //print the game data values in the console
+        Debug.Log("Level name: " + currentLevelData.levelName);
         Debug.Log("Current Level: " + currentLevel);
         Debug.Log("wheel speed: " + wheelSpeed);
         Debug.Log("Speed: " + speed);
@@ -137,7 +143,7 @@ public class GameManager : MonoBehaviour
             maxCapacityReached = true; //change the capacity state to prevent looping of the above
         }
 
-        if (destroyCounter >= garbageCount) //if the player has collected more
+        if (destroyCounter >= garbageCount && levelStarted) //if the player has collected more
         {
             if (stackCount < 1 && !levelFinished) SpawnStackObject(); //if somehow player collects all of the garbage on the level and does not have a box on his back, give him one on the house!
 

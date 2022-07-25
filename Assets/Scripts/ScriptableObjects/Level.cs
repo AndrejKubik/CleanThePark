@@ -5,8 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewLevel", menuName = "GameData/Level")]
 public class Level : ScriptableObject
 {
+    public string levelName;
+
     public GameObject playAreaChunkPrefab;
-    public GameObject startAreaChunkPrefab;
 
     public int garbageTotalCount;
     public List<GameObject> garbagePrefabs;
