@@ -422,7 +422,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.47368422, y: 1}
+    m_SensorSize: {x: 0.5625, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2169,13 +2169,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 568745319}
   vacuumSound: {fileID: 8300000, guid: 28965d7ad2cf5504391c425a3525943e, type: 3}
+  vacuumSoundVolume: 0.8
   deliverySound: {fileID: 8300000, guid: a0cb18e689debe14faa8fae9de1ad07b, type: 3}
+  deliverySoundVolume: 2
   dumpsterSound: {fileID: 8300000, guid: 07df7cf62f7b3604aa53b8b6cdeb15d3, type: 3}
+  dumpsterSoundVolume: 1.5
   levelClearSound: {fileID: 8300000, guid: 79180f511d89441b9aa23ccae1992fe0, type: 3}
+  levelClearSoundVolume: 3
   levelEndSound: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
+  levelEndSoundVolume: 3
   noMoneySound: {fileID: 8300000, guid: 0ea6d4be2ac2f374ab7567da96661329, type: 3}
+  noMoneySoundVolume: 2
   fullCapSound: {fileID: 8300000, guid: 243e849c01c30e6419790d4ce44809d4, type: 3}
+  fullCapSoundVolume: 1.5
   upgradeSound: {fileID: 8300000, guid: 7bd6b897eb5ca4b7d88a205c4a51640c, type: 3}
+  upgradeSoundVolume: 1.5
 --- !u!4 &1599479332
 Transform:
   m_ObjectHideFlags: 0
