@@ -97,19 +97,21 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 60; //make the game try it's best to get at least 60 fps
 
-        LoadGame();
-        if(scenesLoaded <= 1) scenesLoaded++;
-        Debug.Log(scenesLoaded);
+        LoadGame(); //load in the game data
 
+        //reset the game counters
         collectedCount = 0;
         stackCount = 0;
-        canPull = true;
         destroyCounter = 0;
+
+        //reset tha game states
+        canPull = true;
         levelClear = false;
         canMove = true;
 
+        //print the game data values in the console
         Debug.Log("Current Level: " + currentLevel);
         Debug.Log("wheel speed: " + wheelSpeed);
         Debug.Log("Speed: " + speed);
@@ -117,41 +119,42 @@ public class GameManager : MonoBehaviour
         Debug.Log("Vacuum: " + vacuumWidth);
         Debug.Log("Money: " + moneyTotal);
 
-        TurnVacuumOn();
+        TurnVacuumOn(); //activate the player's vacuum
     }
 
     private void Update()
     {
-        if (collectedCount >= numberOfTrashToCollect) SpawnStackObject();
+        if (collectedCount >= numberOfTrashToCollect) SpawnStackObject(); //give player a stack on his back if he has collected enough garbage
 
         if(stackCount >= capacity && !maxCapacityReached) //if player reaches max stacks
         {
-            SoundManager.instance.PlayFullCapSound();
-            MaxCapacityPopup(); //show max cap popup
+            SoundManager.instance.PlayFullCapSound(); //play the full capacity sound
+            MaxCapacityPopup(); //show max cap text popup
             TurnVacuumOff(); //hide the vacuum to stop the player from taking in more garbage
             pullTarget.GetComponent<BoxCollider>().enabled = false; //disable the vacuum's collider
             canPull = false; //disable further pulling of garbage
             guideArrow.SetActive(true); //show the guide arrow for dumping spot
-            maxCapacityReached = true;
+            maxCapacityReached = true; //change the capacity state to prevent looping of the above
         }
 
-        if (destroyCounter >= garbageCount)
+        if (destroyCounter >= garbageCount) //if the player has collected more
         {
-            if (stackCount < 1 && !levelFinished) SpawnStackObject();
+            if (stackCount < 1 && !levelFinished) SpawnStackObject(); //if somehow player collects all of the garbage on the level and does not have a box on his back, give him one on the house!
 
             UIController.instance.winText.SetActive(true); //show the victory message
-            levelClear = true;
+            levelClear = true; //change the game state
+
             if(levelFinished) guideArrow.SetActive(false); //hide the guide arrow
-            else
+            else //if the level is not finished yet
             {
                 guideArrow.SetActive(true); //show the guide arrow
                 TurnVacuumOff(); //hide the vacuum 
             }
 
-            if (!soundPlayed)
+            if (!soundPlayed) //if the level clear sound has not been played yet
             {
-                SoundManager.instance.PlayLevelClearSound();
-                soundPlayed = true;
+                SoundManager.instance.PlayLevelClearSound(); //play it
+                soundPlayed = true; //and prevent looping of the sound
             }
         }
     }
@@ -166,19 +169,18 @@ public class GameManager : MonoBehaviour
     IEnumerator StackRemoval(float delay)
     {
         canMove = false; //stop the player from moving 
-        TurnVacuumOff();
+        TurnVacuumOff(); //deactivate the player's vacuum
         for(int i = stackCount - 1; i >= 0; i--) //for every active player stack
         {
             stacks[i].SetActive(false); //turn off the current box
             moneyTotal += moneyGain; //transmute garbage to money
             moneyAnimator.Play("MoneyBlob"); //play the money animation
             UIController.instance.moneyCount.text = moneyTotal.ToString(); //update the money on UI
-            //Debug.Log("Total Cash: " + moneyTotal); //tell me how much i got
             yield return new WaitForSeconds(delay); //ayo hol' up
         }
         canMove = true; //let the player move again
-        TurnVacuumOn();
-        maxCapacityReached = false;
+        TurnVacuumOn(); //activate the player's vacuum
+        maxCapacityReached = false; //let the player collect garbage again
     }
 
     public void DeliverStacks()
@@ -205,7 +207,7 @@ public class GameManager : MonoBehaviour
 
     public void StartDeliveryCooldown()
     {
-        StartCoroutine(DeliveryCooldown(deliveryCooldown, deliveryIndicator));
+        StartCoroutine(DeliveryCooldown(deliveryCooldown, deliveryIndicator));  //hide the delivery field and reactivate it after a while
     }
 
     public void TurnVacuumOn()
@@ -213,14 +215,14 @@ public class GameManager : MonoBehaviour
         vacuums[vacuumWidth].SetActive(true); //show the current level vacuum
         indicators[vacuumWidth].SetActive(true); //show the current level vacuum indicator
         vacuumParticles.SetActive(true); //play the poof
-        if (!levelClear) vacuumParticles.SetActive(true); //play the poof
+        //if (!levelClear) vacuumParticles.SetActive(true); //play the poof  ???
     }
 
     public void TurnVacuumOff()
     {
         vacuums[vacuumWidth].SetActive(false); //hide the current level vacuum
         indicators[vacuumWidth].SetActive(false); //hide the current level vacuum indicator
-        if (!levelClear) vacuumParticles.SetActive(true); //play the poof
+        if (!levelClear) vacuumParticles.SetActive(true); //if the level is not yet clear play the poof
     }
     public void MaxCapacityPopup() { Instantiate(capFull, popupPosition.position, transform.rotation); }
 
@@ -233,44 +235,42 @@ public class GameManager : MonoBehaviour
     {
         SaveGameData data = SaveSystem.LoadGame();
 
-        if(data != null)
+        if(data != null) //if a save file exists
         {
-            if (currentLevel == 0) currentLevel = 1;
-            else currentLevel = data.currentLevel;
+            //if (currentLevel == 0) currentLevel = 1;
+            //else currentLevel = data.currentLevel;
 
+            //change the game flow and stat values to the save file's values
+            currentLevel = data.currentLevel;
             moneyTotal = data.moneyTotal;
             wheelSpeed = data.wheelSpeed;
             speed = data.speed;
             capacity = data.capacity;
             vacuumWidth = data.vacuumWidth;
             pullSpeed = data.pullSpeed;
-
-            if(scenesLoaded <= 1) UIController.instance.LoadLevel(currentLevel - 1);
-
         }
-        else
+        else //if there is no save file yet
         {
-            ResetGame();
-            UIController.instance.LoadLevel(0); //load the first level
+            ResetGame(); //reset all the game values to default
         }
         
     }
 
     public void ResetGame()
     {
-        currentLevel = 1;
+        currentLevel = 1; //get the level number to level 1
         speed = playerMoveSpeed; //set the player speed 
         capacity = maxBoxesToCarry; //set the player capacity to the set starting value
         vacuumWidth = 0; //set the vacuum level to 0
         pullSpeed = startPullSpeed; //reset the pull speed of the vacuum
         wheelSpeed = wheelSpeedRaw; //reset the wheel rotation speed to the default value
         moneyTotal = 0; //reset the money
-        UIController.instance.moneyCount.text = moneyTotal.ToString(); //update the money ui
 
+        UIController.instance.moneyCount.text = moneyTotal.ToString(); //update the money ui
         UIController.instance.ResetShop(); //reset shop costs
 
-        Debug.Log("Game save file reset!");
+        Debug.Log("Game save file reset!"); //print the notification in the console
 
-        SaveGame();
+        SaveGame(); //save the game data just in case
     }
 }

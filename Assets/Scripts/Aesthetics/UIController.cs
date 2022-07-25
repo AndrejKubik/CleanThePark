@@ -139,12 +139,6 @@ public class UIController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); //reload the scene
     }
 
-    public void LoadLevel(int levelNumber)
-    {
-        //Destroy(GameObject.FindGameObjectWithTag("Music")); //start the music from the start
-        //SceneManager.LoadScene(levelNumber);
-    }
-
     public void UpgradeSpeed()
     {
         if (GameManager.moneyTotal >= speedUpgradeCost) //if the player has enough money

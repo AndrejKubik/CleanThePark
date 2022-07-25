@@ -23,12 +23,12 @@ public class LevelGeneration : MonoBehaviour
 
     public void GenerateLevel()
     {
-        for (int i = 0; i < garbagePrefabs.Count; i++)
+        for (int i = 0; i < garbagePrefabs.Count; i++) //for every garbage prefab
         {
-            GenerateObject(garbagePrefabs[i], garbageCount, garbageRegion);
+            GenerateObject(garbagePrefabs[i], garbageCount, garbageRegion); //spawn the chosen ammount of the current prefab randomly in the chosen area
         }
 
-        GenerateEnvironment(environmentPrefabs, environmentSpawnPositions.Count, environmentSpawnPositions);
+        GenerateEnvironment(environmentPrefabs, environmentSpawnPositions.Count, environmentSpawnPositions); //spawn a random environment prefab on every empty environment spot
     }
 
     private void GenerateEnvironment(List<GameObject> objectsToSpawn, int numberOfObjects, List<Transform> positions)

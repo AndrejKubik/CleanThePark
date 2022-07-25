@@ -18,16 +18,17 @@ public class VacuumCollisionProximity : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Garbage"))
+        if (other.CompareTag("Garbage")) //if a trash piece comes in the vacuum side safeguard area
         {
             trash.Add(other.gameObject); //add the current trash to the list
-            GameManager.instance.vacuum.SetActive(false);
+            trashNear = true; //trigger the proximity check ???????
+            GameManager.instance.vacuum.SetActive(false); //turn off the player's vacuum object
         }
     }
 
     private void Update()
     {
-        if (trashNear) CheckProximity();
+        if (trashNear) CheckProximity(); //if there is trash on the sides check again
     }
 
     void CheckProximity()
@@ -41,13 +42,13 @@ public class VacuumCollisionProximity : MonoBehaviour
 
         if (counter > 0)
         {
-            Debug.Log("kurac2");
+            Debug.Log("there is trash on the sides");
 
             trashNear = true;
         }
         else
         {
-            Debug.Log("kurac");
+            Debug.Log("there is no more trash on the sides");
             
             trashNear = false;
         }

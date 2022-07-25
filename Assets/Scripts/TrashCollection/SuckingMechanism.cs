@@ -11,7 +11,7 @@ public class SuckingMechanism : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>(); //store the object's rigidbody component
-        isGrounded = true;
+        isGrounded = true; 
     }
 
     private void OnTriggerEnter(Collider other)
@@ -19,11 +19,11 @@ public class SuckingMechanism : MonoBehaviour
         if(other.CompareTag("Vacuum") && GameManager.instance.canPull) //if the object is hit by the vacuum and if the player is not carrying max number of boxes on his back
         {
             isPulling = true; //trigger the pulling state
-            SoundManager.instance.PlayVacuumSound();
+            SoundManager.instance.PlayVacuumSound(); //play the suction sound
         }
-        else if(other.CompareTag("Proximity") && !GameManager.instance.canPull)
+        else if(other.CompareTag("Proximity") && !GameManager.instance.canPull) //if the garbage piece somehow touches the vacuum from the sides
         {
-            ActivateGravity(rb);
+            ActivateGravity(rb); //let it fall to the ground
         }
     }
 
@@ -39,7 +39,7 @@ public class SuckingMechanism : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground") && isGrounded)
+        if (collision.gameObject.CompareTag("Ground") && isGrounded) //if the trash piece is on the ground
         {
             DeactivateGravity(rb); //remove the gravity from the dropped piece of trash
         }
@@ -47,8 +47,7 @@ public class SuckingMechanism : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameManager.instance.destroyCounter++;
-        //Debug.Log("Garbage Collected: " + GameManager.instance.destroyCounter);
+        GameManager.instance.destroyCounter++; //increment the destroy counter when this piece is removed from the game
     }
 
     private void Update()

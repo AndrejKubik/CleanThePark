@@ -6,6 +6,9 @@ public class WheelRotation : MonoBehaviour
 {
     private void Update()
     {
-        if (GameManager.instance.isMoving && GameManager.instance.canMove) transform.Rotate(Vector3.forward * GameManager.wheelSpeed * GameManager.instance.wheelSpeedModifier * Time.deltaTime); //if the player is on the move spin his wheels boye!
+        if (GameManager.instance.isMoving && GameManager.instance.canMove) //if the player is on the move
+        {
+            transform.Rotate(Vector3.forward * GameManager.wheelSpeed * GameManager.instance.wheelSpeedModifier * Time.deltaTime); //spin his wheels boye!
+        }
     }
 }

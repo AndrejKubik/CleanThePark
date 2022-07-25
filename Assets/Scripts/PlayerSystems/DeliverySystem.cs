@@ -12,9 +12,9 @@ public class DeliverySystem : MonoBehaviour
         {
             particles[GameManager.instance.stackCount - 1].SetActive(true); //show the proper particle according to the player's stack count
 
-            GameManager.instance.DeliverStacks();
+            GameManager.instance.DeliverStacks(); //start the stack delivery particles and garbage-to-money transactions
 
-            GameManager.instance.StartDeliveryCooldown();
+            GameManager.instance.StartDeliveryCooldown(); //hide the shop field and show after a bit
         }
     }
 }
