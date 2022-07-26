@@ -48,7 +48,7 @@ public class VacuumCollisionProximity : MonoBehaviour
         }
         else
         {
-            Debug.Log("there is no more trash on the sides");
+            //Debug.Log("there is no more trash on the sides");
             
             trashNear = false;
         }

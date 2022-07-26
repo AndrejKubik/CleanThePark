@@ -43,9 +43,9 @@ public class UIController : MonoBehaviour
     private int vacuumCostChange = 100;
     private int capacityCostChange = 30;
 
-    public static int speedUpgradeCost;
-    public static int vacuumUpgradeCost;
-    public static int capacityUpgradeCost;
+    public static int speedUpgradeCost = 20;
+    public static int vacuumUpgradeCost = 60;
+    public static int capacityUpgradeCost = 25;
 
     public Animator speedAnim;
     public Animator vacuumAnim;
@@ -59,10 +59,11 @@ public class UIController : MonoBehaviour
     {
         UpdateShopUI();
 
-        if (GameManager.scenesLoaded >= 2)
+        if (GameManager.scenesLoaded == 0) //if the application is just turned on
         {
+            startMenu.SetActive(true); //show the start menu
             Time.timeScale = 0f; //freeze game time
-            startMenu.SetActive(true);
+            GameManager.scenesLoaded++; //increment the first load check
         }
         else
         {

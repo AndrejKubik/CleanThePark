@@ -16,6 +16,8 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource audio;
 
+    public GameObject bgMusic;
+
     public AudioClip vacuumSound;
     public float vacuumSoundVolume = 0.8f;
 
@@ -39,6 +41,11 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip upgradeSound;
     public float upgradeSoundVolume = 1.5f;
+
+    private void Start()
+    {
+        if (GameManager.scenesLoaded == 0) Instantiate(bgMusic, Vector3.zero, transform.rotation);
+    }
 
     public void PlayVacuumSound() { audio.PlayOneShot(vacuumSound, vacuumSoundVolume); }
     public void PlayDeliverySound() { audio.PlayOneShot(deliverySound, deliverySoundVolume); }
