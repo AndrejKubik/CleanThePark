@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 6889974127889614096}
   - component: {fileID: 8681512636815176154}
   - component: {fileID: 3682080795017531616}
+  - component: {fileID: 5280163968342590431}
+  - component: {fileID: 3013836812530718819}
   m_Layer: 0
   m_Name: flasa slomljena2
-  m_TagString: Untagged
+  m_TagString: Garbage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,3 +100,32 @@ CapsuleCollider:
   m_Height: 0.46790004
   m_Direction: 2
   m_Center: {x: 0.0051751733, y: -0.014021993, z: 0.025150418}
+--- !u!114 &5280163968342590431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7168061338353225743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec780941964a404ea9016fbfe1dec01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPulling: 0
+--- !u!54 &3013836812530718819
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7168061338353225743}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0

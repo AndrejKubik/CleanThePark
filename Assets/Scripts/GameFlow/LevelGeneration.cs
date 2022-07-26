@@ -8,12 +8,14 @@ public class LevelGeneration : MonoBehaviour
 
     public List<Vector3> usedPositions;
 
-    public List<GameObject> garbagePrefabs;
+    private List<GameObject> garbagePrefabs;
     private int garbageCount;
 
-    public List<GameObject> environmentPrefabs;
-
+    private List<GameObject> environmentPrefabs;
     public List<Transform> environmentSpawnPositions;
+
+    private List<GameObject> eyeCandyPrefabs;
+    public List<Transform> eyeCandySpawnPositions;
 
     private void Start()
     {
@@ -34,6 +36,8 @@ public class LevelGeneration : MonoBehaviour
         GenerateGarbage(garbagePrefabs, garbageCount, garbageRegion); //spawn a random garbage prefab within the garbage spawn region until chosen ammount of garbage is reached
 
         GenerateEnvironment(environmentPrefabs, environmentSpawnPositions.Count, environmentSpawnPositions); //spawn a random environment prefab on every empty environment spot
+
+        GenerateEyeCandy(eyeCandyPrefabs, eyeCandySpawnPositions.Count, eyeCandySpawnPositions); //spawn a random eye candy environment prefab on every empty empty spot
     }
 
     private void GenerateEnvironment(List<GameObject> objectsToSpawn, int numberOfObjects, List<Transform> positions)
@@ -52,6 +56,19 @@ public class LevelGeneration : MonoBehaviour
         }
     }
 
+    private void GenerateEyeCandy(List<GameObject> objectsToSpawn, int numberOfObjects, List<Transform> positions)
+    {
+        for (int i = 0; i < numberOfObjects; i++) //for every object to spawn
+        {
+            int randomIndex = Random.Range(0, positions.Count); //choose a random element from the position list
+            Transform randomSpawnPosition = positions[randomIndex]; //get the random spawn position
+            positions.RemoveAt(randomIndex); //remove the used position from the list
+
+            randomIndex = Random.Range(0, objectsToSpawn.Count); //choose a random element from the prefabs list
+            Instantiate(objectsToSpawn[randomIndex], randomSpawnPosition); //spawn the chosen object as a child of an empty spawn position object
+        }
+    }
+
     private void GenerateGarbage(List<GameObject> objectsToSpawn, int numberOfObjects, Collider spawnRegion)
     {
         for(int i = 0; i < numberOfObjects; i++)
@@ -67,18 +84,20 @@ public class LevelGeneration : MonoBehaviour
         }
     }
 
-    private void GenerateObject(GameObject objectToSpawn, int numberOfObjects, Collider spawnRegion)
-    {
-        for (int i = 0; i < numberOfObjects; i++) //for every object to spawn
-        {
-            float randomY = Random.Range(0f, 180f); //get the random Y-coordinate for the spawn rotation quaternion
-            Vector3 randomRotation = new Vector3(0f, randomY, 0f); //make the vector for the random rotation quaternion
 
-            Vector3 randomSpawnPosition = RandomPosition(spawnRegion); //get the random position in the chosen region
-            Instantiate(objectToSpawn, randomSpawnPosition, Quaternion.Euler(randomRotation)); //spawn the chosen object at the gotten position
-            GameManager.instance.garbageCount++; //increment the objective trash count
-        }
-    }
+
+    //private void GenerateObject(GameObject objectToSpawn, int numberOfObjects, Collider spawnRegion)
+    //{
+    //    for (int i = 0; i < numberOfObjects; i++) //for every object to spawn
+    //    {
+    //        float randomY = Random.Range(0f, 180f); //get the random Y-coordinate for the spawn rotation quaternion
+    //        Vector3 randomRotation = new Vector3(0f, randomY, 0f); //make the vector for the random rotation quaternion
+
+    //        Vector3 randomSpawnPosition = RandomPosition(spawnRegion); //get the random position in the chosen region
+    //        Instantiate(objectToSpawn, randomSpawnPosition, Quaternion.Euler(randomRotation)); //spawn the chosen object at the gotten position
+    //        GameManager.instance.garbageCount++; //increment the objective trash count
+    //    }
+    //}
 
     public Vector3 RandomPosition(Collider region)
     {
@@ -96,6 +115,7 @@ public class LevelGeneration : MonoBehaviour
         garbagePrefabs = GameManager.instance.currentLevelData.garbagePrefabs;
         garbageCount = GameManager.instance.currentLevelData.garbageTotalCount;
         environmentPrefabs = GameManager.instance.currentLevelData.environmentCommonPrefabs;
+        eyeCandyPrefabs = GameManager.instance.currentLevelData.environmentEyeCandyPrefabs;
     }
 
     #region Mercy M'Lord

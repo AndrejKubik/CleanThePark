@@ -12,9 +12,7 @@ public class Level : ScriptableObject
     public int garbageTotalCount;
     public List<GameObject> garbagePrefabs;
 
-    public int commonEnvironmentCount;
     public List<GameObject> environmentCommonPrefabs;
 
-    public int eyeCandyEnvironmentCount;
     public List<GameObject> environmentEyeCandyPrefabs;
 }

@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 3148910157289633211}
   - component: {fileID: 889419502801830257}
   - component: {fileID: 2836678028835898811}
+  - component: {fileID: -4047176075116904717}
+  - component: {fileID: -7606514521321309981}
   m_Layer: 0
   m_Name: tebrenol2
-  m_TagString: Untagged
+  m_TagString: Garbage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,3 +99,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3296293, y: 0.036845274, z: 0.060001705}
   m_Center: {x: -0.102852575, y: -0.013991632, z: -0.013157921}
+--- !u!114 &-4047176075116904717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681854919329538212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec780941964a404ea9016fbfe1dec01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPulling: 0
+--- !u!54 &-7606514521321309981
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681854919329538212}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0

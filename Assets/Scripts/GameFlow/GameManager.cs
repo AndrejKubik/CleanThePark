@@ -74,8 +74,10 @@ public class GameManager : MonoBehaviour
     public bool levelClear;
     public bool levelFinished;
     public bool levelStarted;
+
     public List<Level> levels;
     public Level currentLevelData;
+    public Transform playAreaParent;
 
     [Header(">>>>>>>>>>>>>>>| UPGRADE EFFECTIVE VALUES |<<<<<<<<<<<<<<<")]
 
@@ -105,6 +107,8 @@ public class GameManager : MonoBehaviour
         LoadGame(); //load in the game data
 
         currentLevelData = levels[currentLevel - 1]; //load in the data from the current level from the list
+
+        GenerateLevelChunk(currentLevelData.playAreaChunkPrefab, playAreaParent); //spawn the play area chunk according to the current level data
 
         //reset the game counters
         collectedCount = 0;
@@ -278,5 +282,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game save file reset!"); //print the notification in the console
 
         SaveGame(); //save the game data just in case
+    }
+
+    private void GenerateLevelChunk(GameObject playAreaChunk, Transform positionParentObject)
+    {
+        Instantiate(playAreaChunk, positionParentObject); //spawn a level chunk as a child object of the position slot parent
     }
 }

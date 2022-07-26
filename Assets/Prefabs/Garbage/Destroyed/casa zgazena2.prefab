@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 5551861376679995765}
   - component: {fileID: 7703648815280561599}
   - component: {fileID: 6735078269118212543}
+  - component: {fileID: -1873919865103614906}
+  - component: {fileID: 8645821645323723869}
   m_Layer: 0
   m_Name: casa zgazena2
-  m_TagString: Untagged
+  m_TagString: Garbage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,3 +100,32 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.11600384
   m_Center: {x: 0.0012115538, y: 0.0019450337, z: 0.0019723326}
+--- !u!114 &-1873919865103614906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8207853992437857386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec780941964a404ea9016fbfe1dec01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPulling: 0
+--- !u!54 &8645821645323723869
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8207853992437857386}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
