@@ -17,6 +17,9 @@ public class LevelGeneration : MonoBehaviour
     private List<GameObject> eyeCandyPrefabs;
     public List<Transform> eyeCandySpawnPositions;
 
+    public float spawnHeight = 1f;
+
+
     private void Start()
     {
         LoadLevelData();
@@ -105,7 +108,7 @@ public class LevelGeneration : MonoBehaviour
         float xRandom = Random.Range(region.bounds.min.x, region.bounds.max.x);
         float zRandom = Random.Range(region.bounds.min.z, region.bounds.max.z);
 
-        Vector3 randomSpawnPosition = new Vector3(xRandom, 0.5f, zRandom); //combine the 2 gotten coordinates to get the final position Vector
+        Vector3 randomSpawnPosition = new Vector3(xRandom, spawnHeight, zRandom); //combine the 2 gotten coordinates to get the final position Vector
 
         return randomSpawnPosition;
     }
