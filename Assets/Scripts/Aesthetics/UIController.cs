@@ -38,7 +38,10 @@ public class UIController : MonoBehaviour
     public static int vacuumUpgCount = 0;
     public static int capacityUpgCount = 0;
 
-    private int maxUpgrades = 2;
+    private int maxSpeedUpgrades = 2;
+    private int maxVacuumUpgrades = 4;
+    private int maxCapacityUpgrades = 2;
+
     private int speedCostChange = 40;
     private int vacuumCostChange = 100;
     private int capacityCostChange = 30;
@@ -145,7 +148,7 @@ public class UIController : MonoBehaviour
     {
         if (GameManager.moneyTotal >= speedUpgradeCost) //if the player has enough money
         {
-            if (speedUpgCount < maxUpgrades) //if the stat is not at max level already
+            if (speedUpgCount < maxSpeedUpgrades) //if the stat is not at max level already
             {
                 GameManager.speed += GameManager.instance.speedUpg; //increase the player's speed by the chose value
                 GameManager.wheelSpeed += GameManager.instance.wheelSpeedUpg; //rotate wheels faster
@@ -158,7 +161,7 @@ public class UIController : MonoBehaviour
                 speedUpgradeCost += speedCostChange; //increase the cost by the set ammount for next upgrade
                 speedCostNumber.text = speedUpgradeCost.ToString(); //update the text of the cost
 
-                if (speedUpgCount == (maxUpgrades - 1)) speedMax.SetActive(true); //show the max level sign
+                if (speedUpgCount == (maxSpeedUpgrades - 1)) speedMax.SetActive(true); //show the max level sign
 
                 SoundManager.instance.PlayUpgSound(); //play the upgrade sound
 
@@ -180,15 +183,15 @@ public class UIController : MonoBehaviour
     {
         if (GameManager.moneyTotal >= vacuumUpgradeCost) //if the player has enough money
         {
-            if (vacuumUpgCount < maxUpgrades) //if the stat is not at the max level
+            if (vacuumUpgCount < maxVacuumUpgrades) //if the stat is not at the max level
             {
                 GameManager.instance.TurnVacuumOff(); //hide the current vacuum indicator
-                GameManager.vacuumWidth++; //change the vacuum model to the next level model
+                GameManager.vacuumLevel++; //change the vacuum model to the next level model
                 GameManager.pullSpeed += GameManager.instance.pullUpg; //increase the pulling strength
 
                 StartCoroutine(ShowPopUp(vacuumAnim.gameObject, vacuumAnim)); //show the text popup
 
-                Debug.Log("current vacuum: " + GameManager.vacuumWidth); //print the current vacuum number in the console
+                Debug.Log("current vacuum: " + GameManager.vacuumLevel); //print the current vacuum number in the console
 
                 if (GameManager.instance.canPull) GameManager.instance.TurnVacuumOn(); //if the player doesn't have max stacks on his back, show the next level vacuum indicator
 
@@ -197,7 +200,7 @@ public class UIController : MonoBehaviour
                 vacuumUpgradeCost += vacuumCostChange; //increase the cost by the set ammount for next upgrade
                 vacuumCostNumber.text = vacuumUpgradeCost.ToString(); //update the text of the cost
 
-                if (vacuumUpgCount == (maxUpgrades - 1)) vacuumMax.SetActive(true); //show the max level sign
+                if (vacuumUpgCount == (maxVacuumUpgrades - 1)) vacuumMax.SetActive(true); //show the max level sign
 
                 SoundManager.instance.PlayUpgSound(); //play the upgrade sound
 
@@ -219,7 +222,7 @@ public class UIController : MonoBehaviour
     {
         if (GameManager.moneyTotal >= capacityUpgradeCost) //if the player has enough money
         {
-            if (capacityUpgCount < maxUpgrades) //if the stat is not already at max level
+            if (capacityUpgCount < maxCapacityUpgrades) //if the stat is not already at max level
             {
                 GameManager.capacity += GameManager.instance.capacityUpg; //increase player's capacity by the set ammount
 
@@ -232,7 +235,7 @@ public class UIController : MonoBehaviour
                 capacityUpgradeCost += capacityCostChange; //increase the cost by the set ammount for next upgrade
                 capacityCostNumber.text = capacityUpgradeCost.ToString(); //update the text of the cost
 
-                if (capacityUpgCount == (maxUpgrades - 1)) capacityMax.SetActive(true); //show the max level sign
+                if (capacityUpgCount == (maxCapacityUpgrades - 1)) capacityMax.SetActive(true); //show the max level sign
 
                 SoundManager.instance.PlayUpgSound(); //play the upgrade sound
 
@@ -260,9 +263,9 @@ public class UIController : MonoBehaviour
         capacityCostNumber.text = capacityUpgradeCost.ToString();
 
         //show the max level text if a stat is at max level
-        if (speedUpgCount >= maxUpgrades) speedMax.SetActive(true);
-        if (vacuumUpgCount >= maxUpgrades) vacuumMax.SetActive(true);
-        if (capacityUpgCount >= maxUpgrades) capacityMax.SetActive(true);
+        if (speedUpgCount >= maxSpeedUpgrades) speedMax.SetActive(true);
+        if (vacuumUpgCount >= maxVacuumUpgrades) vacuumMax.SetActive(true);
+        if (capacityUpgCount >= maxCapacityUpgrades) capacityMax.SetActive(true);
     }
 
     public void BuyUpgrade(int cost)

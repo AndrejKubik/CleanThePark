@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7406489643370906050}
   - component: {fileID: -6571129264578224128}
   - component: {fileID: -3738307841518333799}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: startbucket1
   m_TagString: Garbage
   m_Icon: {fileID: 0}
@@ -131,6 +131,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ea1448ce3a072654da3a336b42e9bff8, type: 3}
       propertyPath: m_Name
       value: startbucket1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ea1448ce3a072654da3a336b42e9bff8, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea1448ce3a072654da3a336b42e9bff8, type: 3}

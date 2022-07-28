@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
 
     public static float speed = 1800f;
     public static int capacity;
-    public static int vacuumWidth = 0;
+    public static int vacuumLevel = 0;
     public static float pullSpeed = 13f;
 
     [Header(">>>>>>>>>>>>>>>| LIST OF ALL PLAYER VACUUM MODELS |<<<<<<<<<<<<<<<")]
@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("wheel speed: " + wheelSpeed);
         Debug.Log("Speed: " + speed);
         Debug.Log("Capacity: " + maxBoxesToCarry);
-        Debug.Log("Vacuum: " + vacuumWidth);
+        Debug.Log("Vacuum: " + vacuumLevel);
         Debug.Log("Money: " + moneyTotal);
 
         TurnVacuumOn(); //activate the player's vacuum
@@ -171,6 +171,8 @@ public class GameManager : MonoBehaviour
                 soundPlayed = true; //and prevent looping of the sound
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Tab)) moneyTotal += 1000;
     }
 
     public void SpawnStackObject()
@@ -226,16 +228,14 @@ public class GameManager : MonoBehaviour
 
     public void TurnVacuumOn()
     {
-        vacuums[vacuumWidth].SetActive(true); //show the current level vacuum
-        indicators[vacuumWidth].SetActive(true); //show the current level vacuum indicator
+        vacuums[vacuumLevel].SetActive(true); //show the current level vacuum
         //vacuumParticles.SetActive(true); //play the poof
         if (!levelClear) vacuumParticles.SetActive(true); //play the poof  
     }
 
     public void TurnVacuumOff()
     {
-        vacuums[vacuumWidth].SetActive(false); //hide the current level vacuum
-        indicators[vacuumWidth].SetActive(false); //hide the current level vacuum indicator
+        vacuums[vacuumLevel].SetActive(false); //hide the current level vacuum
         if (!levelClear) vacuumParticles.SetActive(true); //if the level is not yet clear play the poof
     }
     public void MaxCapacityPopup() { Instantiate(capFull, popupPosition.position, transform.rotation); }
@@ -258,7 +258,7 @@ public class GameManager : MonoBehaviour
             wheelSpeed = data.wheelSpeed;
             speed = data.speed;
             capacity = data.capacity;
-            vacuumWidth = data.vacuumWidth;
+            vacuumLevel = data.vacuumWidth;
             pullSpeed = data.pullSpeed;
 
             //change the shop costs to the values from the save file
@@ -283,7 +283,7 @@ public class GameManager : MonoBehaviour
         currentLevel = 1; //get the level number to level 1
         speed = playerMoveSpeed; //set the player speed 
         capacity = maxBoxesToCarry; //set the player capacity to the set starting value
-        vacuumWidth = 0; //set the vacuum level to 0
+        vacuumLevel = 0; //set the vacuum level to 0
         pullSpeed = startPullSpeed; //reset the pull speed of the vacuum
         wheelSpeed = wheelSpeedRaw; //reset the wheel rotation speed to the default value
         moneyTotal = 0; //reset the money

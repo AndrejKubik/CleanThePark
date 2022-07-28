@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6538589979421699736}
   - component: {fileID: 6240958898262504817}
   - component: {fileID: -8771873262894035277}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: poklopac
   m_TagString: Garbage
   m_Icon: {fileID: 0}
@@ -139,6 +139,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e958d1d91200d8446b3480ca23daef2d, type: 3}
       propertyPath: m_Name
       value: ponklompanc
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e958d1d91200d8446b3480ca23daef2d, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e958d1d91200d8446b3480ca23daef2d, type: 3}

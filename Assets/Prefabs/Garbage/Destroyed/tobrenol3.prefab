@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 442564014878417938}
   - component: {fileID: 635611353642322015}
   - component: {fileID: -588193043577455428}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tobrenol3
   m_TagString: Garbage
   m_Icon: {fileID: 0}
@@ -117,6 +117,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 93ca9a07cd6cb4e4a9c7d818de0f9ed1, type: 3}
       propertyPath: m_Name
       value: tebrenol3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 93ca9a07cd6cb4e4a9c7d818de0f9ed1, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93ca9a07cd6cb4e4a9c7d818de0f9ed1, type: 3}

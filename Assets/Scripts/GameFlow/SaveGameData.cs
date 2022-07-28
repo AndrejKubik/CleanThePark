@@ -30,7 +30,7 @@ public class SaveGameData
         wheelSpeed = GameManager.wheelSpeed;
         speed = GameManager.speed;
         capacity = GameManager.capacity;
-        vacuumWidth = GameManager.vacuumWidth;
+        vacuumWidth = GameManager.vacuumLevel;
         pullSpeed = GameManager.pullSpeed;
 
         speedUpgCost = UIController.speedUpgradeCost;

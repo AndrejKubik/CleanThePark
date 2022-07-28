@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5114656415599006754}
   - component: {fileID: -7100055242075426093}
   - component: {fileID: -7964848178112867037}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: sepsis4
   m_TagString: Garbage
   m_Icon: {fileID: 0}
@@ -131,6 +131,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cbc098f3d07815c419697da0e3d36bae, type: 3}
       propertyPath: m_Name
       value: sepsis4
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cbc098f3d07815c419697da0e3d36bae, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbc098f3d07815c419697da0e3d36bae, type: 3}
