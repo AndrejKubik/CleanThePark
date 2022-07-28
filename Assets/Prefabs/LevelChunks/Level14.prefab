@@ -284,7 +284,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 44036878040471888}
-  m_RootOrder: 14
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -33.331, z: 0}
 --- !u!33 &476770496649852779
 MeshFilter:
@@ -717,7 +717,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 44036878040471888}
-  m_RootOrder: 7
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9094076362255558934
 MeshFilter:
@@ -2688,7 +2688,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 44036878040471888}
-  m_RootOrder: 4
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7406275216420229191
 MeshFilter:
@@ -3470,7 +3470,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 44036878040471888}
-  m_RootOrder: 9
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6558024998131028697
 MeshFilter:
@@ -3651,7 +3651,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 44036878040471888}
-  m_RootOrder: 5
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3126291143085649573
 MeshFilter:
@@ -4601,7 +4601,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 44036878040471888}
-  m_RootOrder: 16
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 55.82, z: 0}
 --- !u!33 &1511952547446322922
 MeshFilter:
@@ -4950,7 +4950,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 44036878040471888}
-  m_RootOrder: 13
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -33.331, z: 0}
 --- !u!33 &2867007110421467986
 MeshFilter:
@@ -5047,7 +5047,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 44036878040471888}
-  m_RootOrder: 15
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 55.82, z: 0}
 --- !u!33 &9048106175872189787
 MeshFilter:
@@ -5480,7 +5480,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 44036878040471888}
-  m_RootOrder: 6
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &730013246782629707
 MeshFilter:
@@ -5639,7 +5639,7 @@ Transform:
   - {fileID: 7862519012824783143}
   - {fileID: 3772359447590888665}
   m_Father: {fileID: 44036878040471888}
-  m_RootOrder: 11
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6892497888466800353
 GameObject:
@@ -6094,6 +6094,10 @@ Transform:
   - {fileID: 5365688010018788015}
   - {fileID: 5054964239438408855}
   - {fileID: 6884425246620317076}
+  - {fileID: 5144931477936284208}
+  - {fileID: 7220371790533092292}
+  - {fileID: 6337352964758407429}
+  - {fileID: 6489222409245438247}
   - {fileID: 4141629413806833407}
   - {fileID: 8679659362088439231}
   - {fileID: 7186310252464996081}
@@ -6103,10 +6107,6 @@ Transform:
   - {fileID: 5134801638939529242}
   - {fileID: 2051132279657193932}
   - {fileID: 7563347246877229655}
-  - {fileID: 5144931477936284208}
-  - {fileID: 7220371790533092292}
-  - {fileID: 6337352964758407429}
-  - {fileID: 6489222409245438247}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6124,60 +6124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   garbageRegion: {fileID: 6583521457287197130}
   usedPositions: []
-  environmentSpawnPositions:
-  - {fileID: 0}
-  - {fileID: 5171502052002190068}
-  - {fileID: 3775011878409861017}
-  - {fileID: 3922453837915135242}
-  - {fileID: 3860166092898689584}
-  - {fileID: 4846947149234874869}
-  - {fileID: 0}
-  - {fileID: 2775980919481810785}
-  - {fileID: 2150287223969318323}
-  - {fileID: 6111554846620779694}
-  - {fileID: 3665631001405840036}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 7607204368746307096}
-  - {fileID: 2402463279981800138}
-  - {fileID: 8135137498381985525}
-  - {fileID: 0}
-  - {fileID: 5128311219916569159}
-  - {fileID: 1044695656725974350}
-  - {fileID: 1606679900832890742}
-  - {fileID: 1891196178139437631}
-  - {fileID: 1361547890986759158}
-  - {fileID: 7038573396995270095}
-  - {fileID: 8943530770909216061}
-  - {fileID: 871137026975626922}
-  - {fileID: 7924045981082305438}
-  - {fileID: 5675388477284816189}
-  - {fileID: 1749563490010594879}
-  - {fileID: 9120412911036537691}
-  - {fileID: 1609630362328347786}
-  - {fileID: 8792360542521347298}
-  - {fileID: 9203045441448960321}
-  - {fileID: 482254456104565002}
-  - {fileID: 7589763419260208247}
-  - {fileID: 5820088789326424644}
-  - {fileID: 213535302261230100}
-  - {fileID: 1690355025411242428}
-  - {fileID: 784066251888944438}
-  - {fileID: 6173613924378021732}
-  - {fileID: 6752383593087137121}
-  - {fileID: 7437512911302620878}
-  - {fileID: 815501349287166884}
-  - {fileID: 2712015998698160400}
-  - {fileID: 8726855633553094514}
-  - {fileID: 3752511257836871556}
-  - {fileID: 7499330631734520054}
-  eyeCandySpawnPositions:
-  - {fileID: 2847397592303068206}
-  - {fileID: 0}
-  - {fileID: 3580422279042767708}
-  - {fileID: 1637025660832411681}
-  - {fileID: 4675173847372728351}
-  - {fileID: 1360829099102069371}
+  commonEnvironmentParent: {fileID: 2051132279657193932}
+  eyeCandyParent: {fileID: 7563347246877229655}
   spawnHeight: 1
 --- !u!1 &7283053312867480874
 GameObject:
@@ -6631,7 +6579,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 44036878040471888}
-  m_RootOrder: 8
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2989138205475217823
 MeshFilter:
@@ -7318,7 +7266,7 @@ Transform:
   - {fileID: 4675173847372728351}
   - {fileID: 1360829099102069371}
   m_Father: {fileID: 44036878040471888}
-  m_RootOrder: 12
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9106732287789644961
 GameObject:
@@ -7505,7 +7453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5719199101980750170, guid: beffe228068918f4c8c781647f59b1a0, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5719199101980750170, guid: beffe228068918f4c8c781647f59b1a0, type: 3}
       propertyPath: m_LocalPosition.x
