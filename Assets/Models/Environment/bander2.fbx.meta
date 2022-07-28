@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: ac757c3c946e51a4a9388923494e5d25
+guid: be59b88f84965744fa9c7a1a45d63bfa
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bandera1
+    second: {fileID: 2100000, guid: 40a180af3b7144440970d274db06012d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bandera3
+    second: {fileID: 2100000, guid: 10ff9202f8a42a946a96a33f6ff49f8b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
