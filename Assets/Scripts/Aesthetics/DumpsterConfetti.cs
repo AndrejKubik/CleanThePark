@@ -18,8 +18,8 @@ public class DumpsterConfetti : MonoBehaviour
 
             GameManager.instance.SaveGame(); //save the game data
 
-            if (GameManager.currentLevel < 5) UIController.instance.victoryMenu.SetActive(true); //if the level is done, show the victory screen
-            else if (GameManager.currentLevel == 5) UIController.instance.endScreen.SetActive(true); //if it is the final level show the end game screen instead
+            if (GameManager.currentLevel < 30) UIController.instance.victoryMenu.SetActive(true); //if the level is done, show the victory screen
+            else if (GameManager.currentLevel == 30) UIController.instance.endScreen.SetActive(true); //if it is the final level show the end game screen instead
         }
     }
 }

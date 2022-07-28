@@ -231,7 +231,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.4864865, y: 1}
+    m_SensorSize: {x: 0.5625, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1342,6 +1342,34 @@ MonoBehaviour:
   levels:
   - {fileID: 11400000, guid: 025b360289bd5c74eb4abcf6e0e371c7, type: 2}
   - {fileID: 11400000, guid: e5b692c5bcb4c0a44abd7d2ddb53eaee, type: 2}
+  - {fileID: 11400000, guid: ce1e1438a1a556248ab6adabbaba1574, type: 2}
+  - {fileID: 11400000, guid: b02fbf2a35220ef45a4d60ce92a58780, type: 2}
+  - {fileID: 11400000, guid: f903b75b92c0e714b8e2f785af9f14f8, type: 2}
+  - {fileID: 11400000, guid: 98616dc9dbf2e5c47a6f2dd557844c2e, type: 2}
+  - {fileID: 11400000, guid: f8f3f1b02c2038548967081c5e4cd680, type: 2}
+  - {fileID: 11400000, guid: 84646ce9755b9fc4cb26b7944501c01c, type: 2}
+  - {fileID: 11400000, guid: cd00d0e459094ea4f9a2fd6873378e0b, type: 2}
+  - {fileID: 11400000, guid: 37492f3bc2a6e2843a17ed0ea21c6a63, type: 2}
+  - {fileID: 11400000, guid: 5467668ae64d0dc4d8e589b3ad233d2d, type: 2}
+  - {fileID: 11400000, guid: 469c9ff99fd113940b1264e178c49609, type: 2}
+  - {fileID: 11400000, guid: e68a7753847e5ea408c0b2c1cb029f53, type: 2}
+  - {fileID: 11400000, guid: d13641e130d7956459003165ca0fab8d, type: 2}
+  - {fileID: 11400000, guid: 8ac8ffd744f90654ea4e485ba61de6da, type: 2}
+  - {fileID: 11400000, guid: 1874baa81d2f3184a837a94a91198b5f, type: 2}
+  - {fileID: 11400000, guid: ec154c300c916b640bd595b40b1706ab, type: 2}
+  - {fileID: 11400000, guid: 20123df6e75e9e449a3ad18182e8c11e, type: 2}
+  - {fileID: 11400000, guid: f670a467542118a48a3fb3901dda4a1c, type: 2}
+  - {fileID: 11400000, guid: 2a32a801eb0f95949893f3c3416a58b4, type: 2}
+  - {fileID: 11400000, guid: 573d9cbb4cb9335498495671e48ef815, type: 2}
+  - {fileID: 11400000, guid: 6de85929bdf40534196aa7f54027bf9e, type: 2}
+  - {fileID: 11400000, guid: 69cdfef28fe5bbd45a2391ba75a6daa4, type: 2}
+  - {fileID: 11400000, guid: 656e25fe8b250744fbc856faebbb257e, type: 2}
+  - {fileID: 11400000, guid: be86e56852b6f4e4cb6c7aeafd0cecbc, type: 2}
+  - {fileID: 11400000, guid: 6db7cf31bbfa01242829efef247087bb, type: 2}
+  - {fileID: 11400000, guid: 4cd93d24a1b50214bb0dce4666044b9a, type: 2}
+  - {fileID: 11400000, guid: 736ece3ca26f8aa42b2b170c1313a202, type: 2}
+  - {fileID: 11400000, guid: 2ace89a4e5d0c1441b75a296eeae6609, type: 2}
+  - {fileID: 11400000, guid: 09bc958a7a1708e498a979159829ba39, type: 2}
   currentLevelData: {fileID: 0}
   playAreaParent: {fileID: 121552067}
   speedUpg: 400
@@ -1398,51 +1426,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   garbageRegion: {fileID: 0}
   usedPositions: []
-  environmentSpawnPositions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  eyeCandySpawnPositions: []
+  commonEnvironmentParent: {fileID: 0}
+  eyeCandyParent: {fileID: 0}
   spawnHeight: 1
 --- !u!95 &1542844430 stripped
 Animator:

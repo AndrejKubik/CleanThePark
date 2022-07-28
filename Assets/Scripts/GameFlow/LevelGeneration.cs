@@ -27,11 +27,13 @@ public class LevelGeneration : MonoBehaviour
         LoadLevelData();
         Debug.Log("garbage to spawn: " + garbageCount);
 
+        environmentSpawnPositions = new List<Transform>();
         for(int i = 0; i < commonEnvironmentParent.childCount; i++) //for every child object in the spawn holder
         {
             environmentSpawnPositions.Add(commonEnvironmentParent.GetChild(i)); //add the current child's transform to the list of spawn positions
         }
 
+        eyeCandySpawnPositions = new List<Transform>();
         for (int i = 0; i < eyeCandyParent.childCount; i++) //for every child object in the spawn holder
         {
             eyeCandySpawnPositions.Add(eyeCandyParent.GetChild(i)); //add the current child's transform to the list of spawn positions
