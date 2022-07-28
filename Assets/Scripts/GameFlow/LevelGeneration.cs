@@ -12,10 +12,12 @@ public class LevelGeneration : MonoBehaviour
     private int garbageCount;
 
     private List<GameObject> environmentPrefabs;
-    public List<Transform> environmentSpawnPositions;
+    [SerializeField] private Transform commonEnvironmentParent;
+    private List<Transform> environmentSpawnPositions;
 
     private List<GameObject> eyeCandyPrefabs;
-    public List<Transform> eyeCandySpawnPositions;
+    [SerializeField] private Transform eyeCandyParent;
+    private List<Transform> eyeCandySpawnPositions;
 
     public float spawnHeight = 1f;
 
@@ -24,6 +26,17 @@ public class LevelGeneration : MonoBehaviour
     {
         LoadLevelData();
         Debug.Log("garbage to spawn: " + garbageCount);
+
+        for(int i = 0; i < commonEnvironmentParent.childCount; i++) //for every child object in the spawn holder
+        {
+            environmentSpawnPositions.Add(commonEnvironmentParent.GetChild(i)); //add the current child's transform to the list of spawn positions
+        }
+
+        for (int i = 0; i < eyeCandyParent.childCount; i++) //for every child object in the spawn holder
+        {
+            eyeCandySpawnPositions.Add(eyeCandyParent.GetChild(i)); //add the current child's transform to the list of spawn positions
+        }
+
         GenerateLevel();
         GameManager.instance.levelStarted = true;
         Debug.Log("garbage spawned: " + GameManager.instance.garbageCount);
@@ -31,11 +44,6 @@ public class LevelGeneration : MonoBehaviour
 
     public void GenerateLevel()
     {
-        //for (int i = 0; i < garbagePrefabs.Count; i++) //for every garbage prefab
-        //{
-        //    GenerateObject(garbagePrefabs[i], garbageCount, garbageRegion); //spawn the chosen ammount of the current prefab randomly in the chosen area
-        //}
-
         GenerateGarbage(garbagePrefabs, garbageCount, garbageRegion); //spawn a random garbage prefab within the garbage spawn region until chosen ammount of garbage is reached
 
         GenerateEnvironment(environmentPrefabs, environmentSpawnPositions.Count, environmentSpawnPositions); //spawn a random environment prefab on every empty environment spot
