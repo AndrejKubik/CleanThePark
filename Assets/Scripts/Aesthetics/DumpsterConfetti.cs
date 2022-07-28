@@ -16,10 +16,11 @@ public class DumpsterConfetti : MonoBehaviour
 
             AnalyticsManagerr.instance.LevelWin(); //trigger the analytics level win event
 
-            GameManager.instance.SaveGame(); //save the game data
+            if (GameManager.currentLevel < GameManager.instance.levels.Count) UIController.instance.victoryMenu.SetActive(true); //if the level is done, show the victory screen
+            else if (GameManager.currentLevel == GameManager.instance.levels.Count) UIController.instance.endScreen.SetActive(true); //if it is the final level show the end game screen instead
 
-            if (GameManager.currentLevel < 30) UIController.instance.victoryMenu.SetActive(true); //if the level is done, show the victory screen
-            else if (GameManager.currentLevel == 30) UIController.instance.endScreen.SetActive(true); //if it is the final level show the end game screen instead
+            GameManager.currentLevel++; //increment the level number
+            GameManager.instance.SaveGame(); //save the game data
         }
     }
 }

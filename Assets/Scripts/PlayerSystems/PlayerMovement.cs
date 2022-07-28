@@ -37,9 +37,12 @@ public class PlayerMovement : MonoBehaviour
     void RotatePlayer()
     {
         Vector3 lookDirection = new Vector3(inputX, 0, inputY); //calculate the direction vector using joystick input values
-        Quaternion lookRotation = Quaternion.LookRotation(lookDirection, Vector3.up); //calculate the target quaternion value to rotate towards
+        if(lookDirection != Vector3.zero)
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(lookDirection, Vector3.up); //calculate the target quaternion value to rotate towards
 
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime); //actually rotate the player towards the calculated direction
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime); //actually rotate the player towards the calculated direction
+        }
     }
 
     void MoveForward(float rawSpeed)

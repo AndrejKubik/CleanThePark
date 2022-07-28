@@ -138,8 +138,12 @@ public class GameManager : MonoBehaviour
 
         if(stackCount >= capacity && !maxCapacityReached) //if player reaches max stacks
         {
-            SoundManager.instance.PlayFullCapSound(); //play the full capacity sound
-            MaxCapacityPopup(); //show max cap text popup
+            if(!levelClear)
+            {
+                SoundManager.instance.PlayFullCapSound(); //play the full capacity sound
+                MaxCapacityPopup(); //show max cap text popup
+            }
+
             TurnVacuumOff(); //hide the vacuum to stop the player from taking in more garbage
             pullTarget.GetComponent<BoxCollider>().enabled = false; //disable the vacuum's collider
             canPull = false; //disable further pulling of garbage
@@ -224,8 +228,8 @@ public class GameManager : MonoBehaviour
     {
         vacuums[vacuumWidth].SetActive(true); //show the current level vacuum
         indicators[vacuumWidth].SetActive(true); //show the current level vacuum indicator
-        vacuumParticles.SetActive(true); //play the poof
-        //if (!levelClear) vacuumParticles.SetActive(true); //play the poof  ???
+        //vacuumParticles.SetActive(true); //play the poof
+        if (!levelClear) vacuumParticles.SetActive(true); //play the poof  
     }
 
     public void TurnVacuumOff()
@@ -247,17 +251,25 @@ public class GameManager : MonoBehaviour
 
         if(data != null) //if a save file exists
         {
-            //if (currentLevel == 0) currentLevel = 1;
-            //else currentLevel = data.currentLevel;
-
             //change the game flow and stat values to the save file's values
             currentLevel = data.currentLevel;
             moneyTotal = data.moneyTotal;
+
             wheelSpeed = data.wheelSpeed;
             speed = data.speed;
             capacity = data.capacity;
             vacuumWidth = data.vacuumWidth;
             pullSpeed = data.pullSpeed;
+
+            //change the shop costs to the values from the save file
+            UIController.speedUpgradeCost = data.speedUpgCost;
+            UIController.vacuumUpgradeCost = data.vacuumUpgCost;
+            UIController.capacityUpgradeCost = data.capacityUpgCost;
+
+            //remeber how many times every upgrade has been bought
+            UIController.speedUpgCount = data.speedUpgCount;
+            UIController.vacuumUpgCount = data.vacuumUpgCount;
+            UIController.capacityUpgCount = data.capacityUpgCount;
         }
         else //if there is no save file yet
         {
