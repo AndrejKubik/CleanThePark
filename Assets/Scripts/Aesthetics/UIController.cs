@@ -34,6 +34,8 @@ public class UIController : MonoBehaviour
 
     public TextMeshProUGUI moneyCount;
 
+    public ShopCostControl shopData;
+
     public static int speedUpgCount = 0;
     public static int vacuumUpgCount = 0;
     public static int capacityUpgCount = 0;
@@ -46,9 +48,9 @@ public class UIController : MonoBehaviour
     private int vacuumCostChange = 100;
     private int capacityCostChange = 30;
 
-    public static int speedUpgradeCost = 20;
-    public static int vacuumUpgradeCost = 60;
-    public static int capacityUpgradeCost = 25;
+    public static int speedUpgradeCost;
+    public static int vacuumUpgradeCost;
+    public static int capacityUpgradeCost;
 
     public Animator speedAnim;
     public Animator vacuumAnim;
@@ -60,25 +62,36 @@ public class UIController : MonoBehaviour
 
     private void Start()
     {
-        maxSpeedUpgrades = GameManager.instance.wheels.Count - 1;
-        maxVacuumUpgrades = GameManager.instance.vacuums.Count - 1;
-        maxCapacityUpgrades = GameManager.instance.stacks.Count - 1;
+        SetUpgradesNumberLimit();
+        SetUpgradesCostChanges();
 
         UpdateShopUI();
 
         if (GameManager.scenesLoaded == 0) //if the application is just turned on
         {
             startMenu.SetActive(true); //show the start menu
-            Time.timeScale = 0f; //freeze game time
             GameManager.scenesLoaded++; //increment the first load check
         }
         else
         {
             joystick.SetActive(true); //activate the joystick
             menuButton.SetActive(true); //show the pause button
-            Time.timeScale = 1f; //resume game time
             startMenu.SetActive(false); //hide the start menu
         }
+    }
+
+    public void SetUpgradesCostChanges()
+    {
+        speedCostChange = shopData.speedUpgradeChange;
+        vacuumCostChange = shopData.vacuumUpgradeChange;
+        capacityCostChange = shopData.capacityUpgradeChange;
+    }
+
+    public void SetUpgradesNumberLimit()
+    {
+        maxSpeedUpgrades = GameManager.instance.wheels.Count - 1;
+        maxVacuumUpgrades = GameManager.instance.vacuums.Count - 1;
+        maxCapacityUpgrades = GameManager.instance.stacks.Count - 1;
     }
 
     public void ResetShop()
@@ -94,9 +107,9 @@ public class UIController : MonoBehaviour
         capacityUpgCount = 0;
 
         //reset all costs
-        speedUpgradeCost = 20;
-        vacuumUpgradeCost = 60;
-        capacityUpgradeCost = 25;
+        speedUpgradeCost = shopData.speedUpgradeStartCost;
+        vacuumUpgradeCost = shopData.vacuumUpgradeStartCost;
+        capacityUpgradeCost = shopData.capacityUpgradeStartCost;
 
         //reset the upgrade cost texts
         speedCostNumber.text = speedUpgradeCost.ToString();
