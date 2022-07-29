@@ -26,18 +26,17 @@ public class GameManager : MonoBehaviour
     public List<GameObject> stacks;
     public int collectedCount;
     public int stackCount;
-    public int numberOfTrashToCollect;
-    public int maxBoxesToCarry = 4;
 
     [Header(">>>>>>>>>>>>>>>| MONEY VALUES |<<<<<<<<<<<<<<<")]
 
     public static int moneyTotal = 0;
-    public int moneyGain;
+    public static int moneyGain;
 
     [Header(">>>>>>>>>>>>>>>| AESTHETHIC THINGS |<<<<<<<<<<<<<<<")]
 
-    public float particleDelay = 0.05f;
+    private float particleDelay = 0.05f;
     public float deliveryCooldown;
+
     public GameObject deliveryIndicator;
     public GameObject guideArrow;
     public Animator moneyAnimator;
@@ -60,8 +59,6 @@ public class GameManager : MonoBehaviour
 
     public float wheelSpeedModifier;
     public static float wheelSpeed;
-
-    public float playerMoveSpeed;
 
     [Header(">>>>>>>>>>>>>>>| LEVEL CONTROL VALUES |<<<<<<<<<<<<<<<")]
 
@@ -91,9 +88,9 @@ public class GameManager : MonoBehaviour
     //CURRENT PLAYER STATS
 
     public static int speedLevel = 0;
-    public static float speed = 1800f;
+    public static float speed;
     public static int capacity;
-    public static int vacuumLevel = 0;
+    public static int vacuumLevel;
     public static float pullSpeed;
 
     [Header(">>>>>>>>>>>>>>>| LIST OF ALL PLAYER UPGRADE MODELS |<<<<<<<<<<<<<<<")]
@@ -119,6 +116,7 @@ public class GameManager : MonoBehaviour
         collectedCount = 0;
         stackCount = 0;
         destroyCounter = 0;
+        moneyGain = currentLevelData.moneyGain;
 
         //reset tha game states
         canPull = true;
@@ -130,16 +128,17 @@ public class GameManager : MonoBehaviour
         Debug.Log("Current Level: " + currentLevel);
         Debug.Log("wheel speed: " + wheelSpeed);
         Debug.Log("Speed: " + speed);
-        Debug.Log("Capacity: " + maxBoxesToCarry);
+        Debug.Log("Capacity: " + capacity);
         Debug.Log("Vacuum: " + vacuumLevel);
         Debug.Log("Money: " + moneyTotal);
+        Debug.Log("Money Gain on this level: " + moneyGain);
 
         TurnVacuumOn(); //activate the player's vacuum
     }
 
     private void Update()
     {
-        if (collectedCount >= numberOfTrashToCollect) SpawnStackObject(); //give player a stack on his back if he has collected enough garbage
+        if (collectedCount >= aesthethicsData.numberOfTrashForStack) SpawnStackObject(); //give player a stack on his back if he has collected enough garbage
 
         if(stackCount >= capacity && !maxCapacityReached) //if player reaches max stacks
         {
@@ -177,7 +176,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab)) moneyTotal += 1000;
+        if (Input.GetKeyDown(KeyCode.Tab)) moneyTotal += 1000; //FAKIN CHEATOR
     }
 
     public void SpawnStackObject()
@@ -298,8 +297,8 @@ public class GameManager : MonoBehaviour
     public void ResetGame()
     {
         currentLevel = 1; //get the level number to level 1
-        speed = playerMoveSpeed; //set the player speed 
-        capacity = maxBoxesToCarry; //set the player capacity to the set starting value
+        speed = aesthethicsData.startMovementSpeed; //set the player speed 
+        capacity = aesthethicsData.startCapacity; //set the player capacity to the set starting value
         vacuumLevel = 0; //set the vacuum level to 0
         pullSpeed = aesthethicsData.vacuumStrengthStart; //reset the pull speed of the vacuum
         wheelSpeed = aesthethicsData.wheelSpeedStart; //reset the wheel rotation speed to the default value

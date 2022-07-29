@@ -15,4 +15,6 @@ public class Level : ScriptableObject
     public List<GameObject> environmentCommonPrefabs;
 
     public List<GameObject> environmentEyeCandyPrefabs;
+
+    public int moneyGain;
 }

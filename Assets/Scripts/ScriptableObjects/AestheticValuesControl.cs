@@ -10,4 +10,9 @@ public class AestheticValuesControl : ScriptableObject
 
     public float vacuumStrengthStart;
     public float vacuumStrengthChange;
+
+    public float startMovementSpeed;
+
+    public int startCapacity;
+    public int numberOfTrashForStack;
 }
