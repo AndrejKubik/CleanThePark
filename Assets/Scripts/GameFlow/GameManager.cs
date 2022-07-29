@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
 
     [Header(">>>>>>>>>>>>>>>| VACUUM VALUES |<<<<<<<<<<<<<<<")]
 
-    public float startPullSpeed;
     public Transform pullTarget;
     public GameObject vacuum;
     public bool canPull;
@@ -59,9 +58,8 @@ public class GameManager : MonoBehaviour
     public bool canMove;
     public bool isMoving;
 
-    public float wheelSpeedRaw;
     public float wheelSpeedModifier;
-    public static float wheelSpeed = 500f;
+    public static float wheelSpeed;
 
     public float playerMoveSpeed;
 
@@ -84,10 +82,11 @@ public class GameManager : MonoBehaviour
 
     [Header(">>>>>>>>>>>>>>>| UPGRADE EFFECTIVE VALUES |<<<<<<<<<<<<<<<")]
 
+    public AestheticValuesControl aesthethicsData;
+    public UpgradeValuesControl upgradeChangesData;
+
     public float speedUpg = 400f;
     public int capacityUpg = 3;
-    public float pullUpg = 5;
-    public float wheelSpeedUpg = 500f;
 
     //CURRENT PLAYER STATS
 
@@ -95,7 +94,7 @@ public class GameManager : MonoBehaviour
     public static float speed = 1800f;
     public static int capacity;
     public static int vacuumLevel = 0;
-    public static float pullSpeed = 13f;
+    public static float pullSpeed;
 
     [Header(">>>>>>>>>>>>>>>| LIST OF ALL PLAYER UPGRADE MODELS |<<<<<<<<<<<<<<<")]
 
@@ -302,8 +301,8 @@ public class GameManager : MonoBehaviour
         speed = playerMoveSpeed; //set the player speed 
         capacity = maxBoxesToCarry; //set the player capacity to the set starting value
         vacuumLevel = 0; //set the vacuum level to 0
-        pullSpeed = startPullSpeed; //reset the pull speed of the vacuum
-        wheelSpeed = wheelSpeedRaw; //reset the wheel rotation speed to the default value
+        pullSpeed = aesthethicsData.vacuumStrengthStart; //reset the pull speed of the vacuum
+        wheelSpeed = aesthethicsData.wheelSpeedStart; //reset the wheel rotation speed to the default value
         moneyTotal = 0; //reset the money
 
         UIController.instance.moneyCount.text = moneyTotal.ToString(); //update the money ui
@@ -317,5 +316,28 @@ public class GameManager : MonoBehaviour
     private void GenerateLevelChunk(GameObject playAreaChunk, Transform positionParentObject)
     {
         Instantiate(playAreaChunk, positionParentObject); //spawn a level chunk as a child object of the position slot parent
+    }
+
+    public void UpgradeSpeedValues()
+    {
+        speed += upgradeChangesData.movementSpeedChange; //increase the player's speed by the chose value
+        wheelSpeed += aesthethicsData.wheelSpeedChange; //rotate wheels faster
+
+        Debug.Log("Speed upgraded: " + speed); //print current speed in the console
+    }
+
+    public void UpgradeVacuumValues()
+    {
+        vacuumLevel++; //change the vacuum model to the next level model
+        pullSpeed += aesthethicsData.vacuumStrengthChange; //increase the pulling strength
+
+        Debug.Log("current vacuum: " + vacuumLevel); //print the current vacuum number in the console
+    }
+
+    public void UpgradeCapacityValues()
+    {
+        capacity += upgradeChangesData.capacityChange; //increase player's capacity by the set ammount
+
+        Debug.Log("Capacity upgraded: " + capacity); //print the current capacity number in the console
     }
 }

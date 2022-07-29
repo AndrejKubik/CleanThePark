@@ -168,11 +168,9 @@ public class UIController : MonoBehaviour
             if (speedUpgCount < maxSpeedUpgrades) //if the stat is not at max level already
             {
                 GameManager.instance.UpgradeWheels(); //switch to new wheel models
-                GameManager.speed += GameManager.instance.speedUpg; //increase the player's speed by the chose value
-                GameManager.wheelSpeed += GameManager.instance.wheelSpeedUpg; //rotate wheels faster
-                StartCoroutine(ShowPopUp(speedAnim.gameObject, speedAnim)); //show the text popup
+                GameManager.instance.UpgradeSpeedValues(); //increase all stats connected to the speed upgrade
 
-                Debug.Log("Speed upgraded: " + GameManager.speed); //print current speed in the console
+                StartCoroutine(ShowPopUp(speedAnim.gameObject, speedAnim)); //show the text popup
 
                 BuyUpgrade(speedUpgradeCost); //do the transaction
 
@@ -204,12 +202,9 @@ public class UIController : MonoBehaviour
             if (vacuumUpgCount < maxVacuumUpgrades) //if the stat is not at the max level
             {
                 GameManager.instance.TurnVacuumOff(); //hide the current vacuum indicator
-                GameManager.vacuumLevel++; //change the vacuum model to the next level model
-                GameManager.pullSpeed += GameManager.instance.pullUpg; //increase the pulling strength
+                GameManager.instance.UpgradeVacuumValues(); //change all stat values connected to the vacuum upgrade
 
                 StartCoroutine(ShowPopUp(vacuumAnim.gameObject, vacuumAnim)); //show the text popup
-
-                Debug.Log("current vacuum: " + GameManager.vacuumLevel); //print the current vacuum number in the console
 
                 if (GameManager.instance.canPull) GameManager.instance.TurnVacuumOn(); //if the player doesn't have max stacks on his back, show the next level vacuum indicator
 
@@ -242,9 +237,7 @@ public class UIController : MonoBehaviour
         {
             if (capacityUpgCount < maxCapacityUpgrades) //if the stat is not already at max level
             {
-                GameManager.capacity += GameManager.instance.capacityUpg; //increase player's capacity by the set ammount
-
-                Debug.Log("Capacity upgraded: " + GameManager.capacity); //print the current capacity number in the console
+                GameManager.instance.UpgradeCapacityValues(); //increase all stats connected to the capacity upgrade
 
                 StartCoroutine(ShowPopUp(capacityAnim.gameObject, capacityAnim)); //show the text popup
 

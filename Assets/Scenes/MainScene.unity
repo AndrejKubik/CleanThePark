@@ -312,7 +312,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.79994196, y: 1}
+    m_SensorSize: {x: 0.5625, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -851,6 +851,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7046439032960412033, guid: dc49ec3b5b5964e41b8190e96efd91fc, type: 3}
   m_PrefabInstance: {fileID: 620159469937393567}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &598646622 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8588612521711249139, guid: beffe228068918f4c8c781647f59b1a0, type: 3}
+  m_PrefabInstance: {fileID: 886377694}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &639467140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,6 +1099,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3962153157523415019, guid: beffe228068918f4c8c781647f59b1a0, type: 3}
+      propertyPath: particles.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962153157523415019, guid: beffe228068918f4c8c781647f59b1a0, type: 3}
+      propertyPath: particles.Array.data[10]
+      value: 
+      objectReference: {fileID: 961099900}
+    - target: {fileID: 3962153157523415019, guid: beffe228068918f4c8c781647f59b1a0, type: 3}
+      propertyPath: particles.Array.data[11]
+      value: 
+      objectReference: {fileID: 598646622}
+    - target: {fileID: 3962153157523415019, guid: beffe228068918f4c8c781647f59b1a0, type: 3}
+      propertyPath: particles.Array.data[12]
+      value: 
+      objectReference: {fileID: 1852589427}
     - target: {fileID: 5719199101980750170, guid: beffe228068918f4c8c781647f59b1a0, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1254,6 +1275,11 @@ GameObject:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3323552295419426915, guid: dc49ec3b5b5964e41b8190e96efd91fc, type: 3}
   m_PrefabInstance: {fileID: 620159469937393567}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &961099900 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2905444726256790111, guid: beffe228068918f4c8c781647f59b1a0, type: 3}
+  m_PrefabInstance: {fileID: 886377694}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
@@ -1543,7 +1569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5f48df98746724faf43129f1574b06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPullSpeed: 13
   pullTarget: {fileID: 41545212}
   vacuum: {fileID: 681408739}
   canPull: 0
@@ -1578,7 +1603,6 @@ MonoBehaviour:
   capFull: {fileID: 6722958758866668348, guid: c3e29f4a1090460428745556a1bd4d12, type: 3}
   canMove: 0
   isMoving: 0
-  wheelSpeedRaw: 500
   wheelSpeedModifier: 0
   playerMoveSpeed: 1800
   garbageCount: 0
@@ -1622,6 +1646,7 @@ MonoBehaviour:
   garbageParent: {fileID: 238245809}
   eyeCandyParent: {fileID: 730541706}
   environmentParent: {fileID: 1649199874}
+  aesthethicsData: {fileID: 11400000, guid: 39926ba373ca08f40a794b84466946e4, type: 2}
   speedUpg: 400
   capacityUpg: 3
   pullUpg: 5
@@ -1829,6 +1854,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b960778462d34f7283156e4edafb7a2, type: 3}
+--- !u!1 &1852589427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 688784623215465475, guid: beffe228068918f4c8c781647f59b1a0, type: 3}
+  m_PrefabInstance: {fileID: 886377694}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1956642852 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6496885194806990947, guid: dc49ec3b5b5964e41b8190e96efd91fc, type: 3}

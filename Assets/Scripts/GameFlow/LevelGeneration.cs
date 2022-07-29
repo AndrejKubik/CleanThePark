@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class LevelGeneration : MonoBehaviour
 {
-    public List<Collider> garbageRegions;
+    [SerializeField] private Transform garbageRegionsParent;
+    private List<Collider> garbageRegions;
 
     public List<Vector3> usedPositions;
 
@@ -32,6 +33,9 @@ public class LevelGeneration : MonoBehaviour
 
         eyeCandySpawnPositions = new List<Transform>();
         AddAllChildrenToList(eyeCandyParent, eyeCandySpawnPositions);
+
+        garbageRegions = new List<Collider>();
+        AddAllChildrenCollidersToList(garbageRegionsParent, garbageRegions);
 
         GenerateLevel();
         GameManager.instance.levelStarted = true;
@@ -110,6 +114,14 @@ public class LevelGeneration : MonoBehaviour
         for(int i = 0; i < parent.childCount; i++) //add all chile objects from the parent to a list of transforms
         {
             children.Add(parent.GetChild(i));
+        }
+    }
+
+    public void AddAllChildrenCollidersToList(Transform parent, List<Collider> children)
+    {
+        for (int i = 0; i < parent.childCount; i++) //add all chile objects from the parent to a list of colliders
+        {
+            children.Add(parent.GetChild(i).GetComponent<BoxCollider>());
         }
     }
 
