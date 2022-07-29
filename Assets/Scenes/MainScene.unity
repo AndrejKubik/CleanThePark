@@ -1588,10 +1588,6 @@ MonoBehaviour:
   - {fileID: 620159469937393568}
   collectedCount: 0
   stackCount: 0
-  numberOfTrashToCollect: 5
-  maxBoxesToCarry: 4
-  moneyGain: 2
-  particleDelay: 0.05
   deliveryCooldown: 4
   deliveryIndicator: {fileID: 2043294885}
   guideArrow: {fileID: 1474632142}
@@ -1604,7 +1600,6 @@ MonoBehaviour:
   canMove: 0
   isMoving: 0
   wheelSpeedModifier: 0
-  playerMoveSpeed: 1800
   garbageCount: 0
   destroyCounter: 0
   levelClear: 0
@@ -1647,10 +1642,9 @@ MonoBehaviour:
   eyeCandyParent: {fileID: 730541706}
   environmentParent: {fileID: 1649199874}
   aesthethicsData: {fileID: 11400000, guid: 39926ba373ca08f40a794b84466946e4, type: 2}
+  upgradeChangesData: {fileID: 11400000, guid: e7bb6300873696044bea63ea0f54c15a, type: 2}
   speedUpg: 400
   capacityUpg: 3
-  pullUpg: 5
-  wheelSpeedUpg: 500
   vacuums:
   - {fileID: 1136196132}
   - {fileID: 286154406}
