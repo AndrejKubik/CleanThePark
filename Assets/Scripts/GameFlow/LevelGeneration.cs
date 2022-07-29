@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelGeneration : MonoBehaviour
 {
-    public Collider garbageRegion;
+    public List<Collider> garbageRegions;
 
     public List<Vector3> usedPositions;
 
@@ -19,7 +19,7 @@ public class LevelGeneration : MonoBehaviour
     [SerializeField] private Transform eyeCandyParent;
     private List<Transform> eyeCandySpawnPositions;
 
-    public float spawnHeight = 1f;
+    public float spawnHeight = 2f;
 
 
     private void Start()
@@ -28,16 +28,10 @@ public class LevelGeneration : MonoBehaviour
         Debug.Log("garbage to spawn: " + garbageCount);
 
         environmentSpawnPositions = new List<Transform>();
-        for(int i = 0; i < commonEnvironmentParent.childCount; i++) //for every child object in the spawn holder
-        {
-            environmentSpawnPositions.Add(commonEnvironmentParent.GetChild(i)); //add the current child's transform to the list of spawn positions
-        }
+        AddAllChildrenToList(commonEnvironmentParent, environmentSpawnPositions); 
 
         eyeCandySpawnPositions = new List<Transform>();
-        for (int i = 0; i < eyeCandyParent.childCount; i++) //for every child object in the spawn holder
-        {
-            eyeCandySpawnPositions.Add(eyeCandyParent.GetChild(i)); //add the current child's transform to the list of spawn positions
-        }
+        AddAllChildrenToList(eyeCandyParent, eyeCandySpawnPositions);
 
         GenerateLevel();
         GameManager.instance.levelStarted = true;
@@ -46,7 +40,7 @@ public class LevelGeneration : MonoBehaviour
 
     public void GenerateLevel()
     {
-        GenerateGarbage(garbagePrefabs, garbageCount, garbageRegion); //spawn a random garbage prefab within the garbage spawn region until chosen ammount of garbage is reached
+        GenerateGarbage(garbagePrefabs, garbageCount, garbageRegions); //spawn a random garbage prefab within the garbage spawn region until chosen ammount of garbage is reached
 
         GenerateEnvironment(environmentPrefabs, environmentSpawnPositions.Count, environmentSpawnPositions); //spawn a random environment prefab on every empty environment spot
 
@@ -65,7 +59,7 @@ public class LevelGeneration : MonoBehaviour
             Vector3 randomRotation = new Vector3(0f, randomY, 0f); //make the vector for the random rotation quaternion
 
             randomIndex = Random.Range(0, objectsToSpawn.Count); //choose a random element from the prefabs list
-            Instantiate(objectsToSpawn[randomIndex], randomSpawnPosition, Quaternion.Euler(randomRotation)); //spawn the chosen object at the gotten position
+            Instantiate(objectsToSpawn[randomIndex], randomSpawnPosition, Quaternion.Euler(randomRotation), GameManager.instance.environmentParent); //spawn the chosen object at the gotten position
         }
     }
 
@@ -78,39 +72,27 @@ public class LevelGeneration : MonoBehaviour
             positions.RemoveAt(randomIndex); //remove the used position from the list
 
             randomIndex = Random.Range(0, objectsToSpawn.Count); //choose a random element from the prefabs list
-            Instantiate(objectsToSpawn[randomIndex], randomSpawnPosition); //spawn the chosen object as a child of an empty spawn position object
+            Instantiate(objectsToSpawn[randomIndex], randomSpawnPosition.position, randomSpawnPosition.rotation, GameManager.instance.eyeCandyParent); //spawn the chosen object as a child of an empty spawn position object
         }
     }
 
-    private void GenerateGarbage(List<GameObject> objectsToSpawn, int numberOfObjects, Collider spawnRegion)
+    private void GenerateGarbage(List<GameObject> objectsToSpawn, int numberOfObjects, List<Collider> spawnRegions)
     {
-        for(int i = 0; i < numberOfObjects; i++)
+        for(int i = 0; i < spawnRegions.Count; i++) //for every spawn region
         {
-            float randomY = Random.Range(0f, 180f); //get the random Y-coordinate for the spawn rotation quaternion
-            Vector3 randomRotation = new Vector3(0f, randomY, 0f); //make the vector for the random rotation quaternion
+            for (int j = 0; j < (numberOfObjects / spawnRegions.Count); j++) //spread the total count of garbage among all regions evenly
+            {
+                float randomY = Random.Range(0f, 180f); //get the random Y-coordinate for the spawn rotation quaternion
+                Vector3 randomRotation = new Vector3(0f, randomY, 0f); //make the vector for the random rotation quaternion
 
-            Vector3 randomSpawnPosition = RandomPosition(spawnRegion); //get the random position in the chosen region
+                Vector3 randomSpawnPosition = RandomPosition(spawnRegions[i]); //get the random position in the chosen region
 
-            int randomIndex = Random.Range(0, objectsToSpawn.Count); //choose a random element from the prefabs list
-            Instantiate(objectsToSpawn[randomIndex], randomSpawnPosition, Quaternion.Euler(randomRotation)); //spawn the chosen object at the gotten position
-            GameManager.instance.garbageCount++; //increment the objective trash count
+                int randomIndex = Random.Range(0, objectsToSpawn.Count); //choose a random element from the prefabs list
+                Instantiate(objectsToSpawn[randomIndex], randomSpawnPosition, Quaternion.Euler(randomRotation), GameManager.instance.garbageParent); //spawn the chosen object at the gotten position
+                GameManager.instance.garbageCount++; //increment the objective trash count
+            }
         }
     }
-
-
-
-    //private void GenerateObject(GameObject objectToSpawn, int numberOfObjects, Collider spawnRegion)
-    //{
-    //    for (int i = 0; i < numberOfObjects; i++) //for every object to spawn
-    //    {
-    //        float randomY = Random.Range(0f, 180f); //get the random Y-coordinate for the spawn rotation quaternion
-    //        Vector3 randomRotation = new Vector3(0f, randomY, 0f); //make the vector for the random rotation quaternion
-
-    //        Vector3 randomSpawnPosition = RandomPosition(spawnRegion); //get the random position in the chosen region
-    //        Instantiate(objectToSpawn, randomSpawnPosition, Quaternion.Euler(randomRotation)); //spawn the chosen object at the gotten position
-    //        GameManager.instance.garbageCount++; //increment the objective trash count
-    //    }
-    //}
 
     public Vector3 RandomPosition(Collider region)
     {
@@ -121,6 +103,14 @@ public class LevelGeneration : MonoBehaviour
         Vector3 randomSpawnPosition = new Vector3(xRandom, spawnHeight, zRandom); //combine the 2 gotten coordinates to get the final position Vector
 
         return randomSpawnPosition;
+    }
+
+    public void AddAllChildrenToList(Transform parent, List<Transform> children)
+    {
+        for(int i = 0; i < parent.childCount; i++) //add all chile objects from the parent to a list of transforms
+        {
+            children.Add(parent.GetChild(i));
+        }
     }
 
     public void LoadLevelData()

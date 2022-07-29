@@ -38,9 +38,9 @@ public class UIController : MonoBehaviour
     public static int vacuumUpgCount = 0;
     public static int capacityUpgCount = 0;
 
-    private int maxSpeedUpgrades = 2;
-    private int maxVacuumUpgrades = 4;
-    private int maxCapacityUpgrades = 2;
+    private int maxSpeedUpgrades;
+    private int maxVacuumUpgrades;
+    private int maxCapacityUpgrades;
 
     private int speedCostChange = 40;
     private int vacuumCostChange = 100;
@@ -60,6 +60,10 @@ public class UIController : MonoBehaviour
 
     private void Start()
     {
+        maxSpeedUpgrades = GameManager.instance.wheels.Count - 1;
+        maxVacuumUpgrades = GameManager.instance.vacuums.Count - 1;
+        maxCapacityUpgrades = GameManager.instance.stacks.Count - 1;
+
         UpdateShopUI();
 
         if (GameManager.scenesLoaded == 0) //if the application is just turned on
@@ -150,6 +154,7 @@ public class UIController : MonoBehaviour
         {
             if (speedUpgCount < maxSpeedUpgrades) //if the stat is not at max level already
             {
+                GameManager.instance.UpgradeWheels(); //switch to new wheel models
                 GameManager.speed += GameManager.instance.speedUpg; //increase the player's speed by the chose value
                 GameManager.wheelSpeed += GameManager.instance.wheelSpeedUpg; //rotate wheels faster
                 StartCoroutine(ShowPopUp(speedAnim.gameObject, speedAnim)); //show the text popup

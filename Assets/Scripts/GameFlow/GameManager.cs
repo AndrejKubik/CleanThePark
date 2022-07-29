@@ -78,6 +78,9 @@ public class GameManager : MonoBehaviour
     public List<Level> levels;
     public Level currentLevelData;
     public Transform playAreaParent;
+    public Transform garbageParent;
+    public Transform eyeCandyParent;
+    public Transform environmentParent;
 
     [Header(">>>>>>>>>>>>>>>| UPGRADE EFFECTIVE VALUES |<<<<<<<<<<<<<<<")]
 
@@ -88,15 +91,16 @@ public class GameManager : MonoBehaviour
 
     //CURRENT PLAYER STATS
 
+    public static int speedLevel = 0;
     public static float speed = 1800f;
     public static int capacity;
     public static int vacuumLevel = 0;
     public static float pullSpeed = 13f;
 
-    [Header(">>>>>>>>>>>>>>>| LIST OF ALL PLAYER VACUUM MODELS |<<<<<<<<<<<<<<<")]
+    [Header(">>>>>>>>>>>>>>>| LIST OF ALL PLAYER UPGRADE MODELS |<<<<<<<<<<<<<<<")]
 
     public List<GameObject> vacuums;
-    public List<GameObject> indicators;
+    public List<GameObject> wheels;
 
     public static int scenesLoaded = 0;
 
@@ -107,6 +111,8 @@ public class GameManager : MonoBehaviour
         LoadGame(); //load in the game data
 
         currentLevelData = levels[currentLevel - 1]; //load in the data from the current level from the list
+
+        TurnWheelsOn(); //show the wheel models according to the upgrade level
 
         GenerateLevelChunk(currentLevelData.playAreaChunkPrefab, playAreaParent); //spawn the play area chunk according to the current level data
 
@@ -229,7 +235,6 @@ public class GameManager : MonoBehaviour
     public void TurnVacuumOn()
     {
         vacuums[vacuumLevel].SetActive(true); //show the current level vacuum
-        //vacuumParticles.SetActive(true); //play the poof
         if (!levelClear) vacuumParticles.SetActive(true); //play the poof  
     }
 
@@ -238,6 +243,19 @@ public class GameManager : MonoBehaviour
         vacuums[vacuumLevel].SetActive(false); //hide the current level vacuum
         if (!levelClear) vacuumParticles.SetActive(true); //if the level is not yet clear play the poof
     }
+
+    public void TurnWheelsOn()
+    {
+        wheels[speedLevel].SetActive(true); //show current speed models
+    }
+
+    public void UpgradeWheels()
+    {
+        wheels[speedLevel].SetActive(false); //hide the current speed models
+        speedLevel++; //increment the speed level number
+        wheels[speedLevel].SetActive(true); //show new speed models
+    }
+
     public void MaxCapacityPopup() { Instantiate(capFull, popupPosition.position, transform.rotation); }
 
     public void SaveGame()
@@ -255,10 +273,11 @@ public class GameManager : MonoBehaviour
             currentLevel = data.currentLevel;
             moneyTotal = data.moneyTotal;
 
+            speedLevel = data.speedLevel;
             wheelSpeed = data.wheelSpeed;
             speed = data.speed;
             capacity = data.capacity;
-            vacuumLevel = data.vacuumWidth;
+            vacuumLevel = data.vacuumLevel;
             pullSpeed = data.pullSpeed;
 
             //change the shop costs to the values from the save file
@@ -275,7 +294,6 @@ public class GameManager : MonoBehaviour
         {
             ResetGame(); //reset all the game values to default
         }
-        
     }
 
     public void ResetGame()

@@ -8,10 +8,11 @@ public class SaveGameData
     public int currentLevel;
     public int moneyTotal;
 
+    public int speedLevel;
     public float wheelSpeed;
     public float speed;
     public int capacity;
-    public int vacuumWidth;
+    public int vacuumLevel;
     public float pullSpeed;
 
     public int speedUpgCost;
@@ -27,10 +28,11 @@ public class SaveGameData
         currentLevel = GameManager.currentLevel;
         moneyTotal = GameManager.moneyTotal;
 
+        speedLevel = GameManager.speedLevel;
         wheelSpeed = GameManager.wheelSpeed;
         speed = GameManager.speed;
         capacity = GameManager.capacity;
-        vacuumWidth = GameManager.vacuumLevel;
+        vacuumLevel = GameManager.vacuumLevel;
         pullSpeed = GameManager.pullSpeed;
 
         speedUpgCost = UIController.speedUpgradeCost;
