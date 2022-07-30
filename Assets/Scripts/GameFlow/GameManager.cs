@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
 
     //CURRENT PLAYER STATS
 
-    public static int speedLevel = 0;
+    public static int speedLevel;
     public static float speed;
     public static int capacity;
     public static int vacuumLevel;
@@ -298,6 +298,7 @@ public class GameManager : MonoBehaviour
     {
         currentLevel = 1; //get the level number to level 1
         speed = aesthethicsData.startMovementSpeed; //set the player speed 
+        speedLevel = 0; //reset the wheel models
         capacity = aesthethicsData.startCapacity; //set the player capacity to the set starting value
         vacuumLevel = 0; //set the vacuum level to 0
         pullSpeed = aesthethicsData.vacuumStrengthStart; //reset the pull speed of the vacuum
