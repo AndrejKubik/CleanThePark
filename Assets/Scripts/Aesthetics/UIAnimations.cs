@@ -15,6 +15,7 @@ public class UIAnimations : MonoBehaviour
     #endregion
 
     [SerializeField] Animator animator;
+    [SerializeField] Animator camera;
 
     [SerializeField] private AnimationClip shopOpen;
     [SerializeField] private AnimationClip shopClose;
@@ -25,7 +26,8 @@ public class UIAnimations : MonoBehaviour
 
         if(!hasPlayed)
         {
-            animator.Play(shopOpen.name);
+            StartCoroutine(ActivateShop(0.6f));
+
             hasPlayed = true;
         }
     }
@@ -36,8 +38,34 @@ public class UIAnimations : MonoBehaviour
 
         if (!hasPlayed)
         {
-            animator.Play(shopClose.name);
+            StartCoroutine(DeactivateShop(0.6f));
+
             hasPlayed = true;
         }
+    }
+
+    IEnumerator ActivateShop(float delay)
+    {
+        camera.SetTrigger("OpenShop"); //zoom in on the player
+
+        yield return new WaitForSeconds(delay);
+
+        GameManager.instance.canMove = false;
+        UIController.instance.joystick.SetActive(false); //disable the player movement
+
+        yield return new WaitForSeconds(0.833f - delay);
+
+        animator.Play(shopOpen.name); //slide the shop panel upwards
+    }
+
+    IEnumerator DeactivateShop(float delay)
+    {
+        animator.Play(shopClose.name); //slide the shop panel downwards
+        camera.SetTrigger("CloseShop"); //zoom out from the player
+
+        yield return new WaitForSeconds(delay);
+
+        GameManager.instance.canMove = true;
+        UIController.instance.joystick.SetActive(true); //enable the player movement
     }
 }

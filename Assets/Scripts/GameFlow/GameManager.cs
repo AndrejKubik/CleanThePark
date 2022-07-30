@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> vacuums;
     public List<GameObject> wheels;
+    public Animator camera;
 
     public static int scenesLoaded = 0;
 
@@ -176,7 +177,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab)) moneyTotal += 1000; //FAKIN CHEATOR
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            moneyTotal += 1000; //FAKIN CHEATOR
+            camera.SetTrigger("OpenShop");
+        }
     }
 
     public void SpawnStackObject()

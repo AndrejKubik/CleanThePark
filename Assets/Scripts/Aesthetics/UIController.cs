@@ -30,7 +30,7 @@ public class UIController : MonoBehaviour
 
     public GameObject winText;
 
-    [SerializeField] private GameObject joystick;
+    public GameObject joystick;
 
     public TextMeshProUGUI moneyCount;
 
@@ -92,6 +92,12 @@ public class UIController : MonoBehaviour
         maxSpeedUpgrades = GameManager.instance.wheels.Count - 1;
         maxVacuumUpgrades = GameManager.instance.vacuums.Count - 1;
         maxCapacityUpgrades = GameManager.instance.stacks.Count - GameManager.instance.aesthethicsData.startCapacity;
+    }
+
+    public void CloseShop()
+    {
+        Shop.closeButtonClicked = true; //trigger the X button safeguard to prevent the closing animation from happening again after the player leaves the shop
+        UIAnimations.instance.CloseShop(); //close the shop panel
     }
 
     public void ResetShop()
