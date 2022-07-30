@@ -20,7 +20,7 @@ public class LevelGeneration : MonoBehaviour
     [SerializeField] private Transform eyeCandyParent;
     private List<Transform> eyeCandySpawnPositions;
 
-    public float spawnHeight = 2f;
+    private float spawnHeight = 2f;
 
 
     private void Start()
@@ -95,6 +95,11 @@ public class LevelGeneration : MonoBehaviour
                 Instantiate(objectsToSpawn[randomIndex], randomSpawnPosition, Quaternion.Euler(randomRotation), GameManager.instance.garbageParent); //spawn the chosen object at the gotten position
                 GameManager.instance.garbageCount++; //increment the objective trash count
             }
+        }
+
+        for(int i = 0; i < spawnRegions.Count; i++) //for every collider region
+        {
+            Destroy(spawnRegions[i].gameObject); //destroy the current region object
         }
     }
 

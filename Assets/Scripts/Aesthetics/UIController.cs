@@ -91,7 +91,7 @@ public class UIController : MonoBehaviour
     {
         maxSpeedUpgrades = GameManager.instance.wheels.Count - 1;
         maxVacuumUpgrades = GameManager.instance.vacuums.Count - 1;
-        maxCapacityUpgrades = GameManager.instance.stacks.Count - 3;
+        maxCapacityUpgrades = GameManager.instance.stacks.Count - GameManager.instance.aesthethicsData.startCapacity;
     }
 
     public void ResetShop()
