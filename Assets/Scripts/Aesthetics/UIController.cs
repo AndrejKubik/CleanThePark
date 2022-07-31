@@ -53,6 +53,7 @@ public class UIController : MonoBehaviour
     public static int capacityUpgradeCost;
 
     public Animator uiAnimator;
+    public Animator playerAnimator;
 
     public Animator speedAnim;
     public Animator vacuumAnim;
@@ -176,6 +177,8 @@ public class UIController : MonoBehaviour
         {
             if (speedUpgCount < maxSpeedUpgrades) //if the stat is not at max level already
             {
+                playerAnimator.Play("WheelUpg"); //play the blob animation
+
                 GameManager.instance.UpgradeWheels(); //switch to new wheel models
                 GameManager.instance.UpgradeSpeedValues(); //increase all stats connected to the speed upgrade
 
@@ -212,6 +215,8 @@ public class UIController : MonoBehaviour
         {
             if (vacuumUpgCount < maxVacuumUpgrades) //if the stat is not at the max level
             {
+                playerAnimator.Play("VacuumUpg"); //play the blob animation
+
                 GameManager.instance.TurnVacuumOff(); //hide the current vacuum indicator
                 GameManager.instance.UpgradeVacuumValues(); //change all stat values connected to the vacuum upgrade
 
