@@ -182,6 +182,8 @@ public class GameManager : MonoBehaviour
             moneyTotal += 1000; //FAKIN CHEATOR
             camera.SetTrigger("OpenShop");
         }
+
+        if (Input.GetKeyDown(KeyCode.C)) currentLevel = 25;
     }
 
     public void SpawnStackObject()

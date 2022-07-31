@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    public static bool closeButtonClicked;
+    private bool playerInShop;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Body")) UIAnimations.instance.OpenShop(); //if the player enters the shop field, slide the shop in
+        if(other.CompareTag("Body") && !playerInShop)
+        {
+            playerInShop = true; //prevent the shop from opening again while inside of the shop trigger
+            UIAnimations.instance.OpenShop(); //if the player enters the shop field, slide the shop in
+        }
     }
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.CompareTag("Body") && !closeButtonClicked) //if the shop wasn't already close with the X button
-    //    {
-    //        UIAnimations.instance.CloseShop(); //if the player leaves the shop field, slide the shop out
-    //        closeButtonClicked = false; //reset the X button check
-    //    }
-    //}
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Body")) //if the shop wasn't already close with the X button
+        {
+            playerInShop = false; //let the player open the shop once again
+        }
+    }
 }

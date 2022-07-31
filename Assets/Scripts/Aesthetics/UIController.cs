@@ -52,6 +52,8 @@ public class UIController : MonoBehaviour
     public static int vacuumUpgradeCost;
     public static int capacityUpgradeCost;
 
+    public Animator uiAnimator;
+
     public Animator speedAnim;
     public Animator vacuumAnim;
     public Animator capacityAnim;
@@ -96,7 +98,6 @@ public class UIController : MonoBehaviour
 
     public void CloseShop()
     {
-        Shop.closeButtonClicked = true; //trigger the X button safeguard to prevent the closing animation from happening again after the player leaves the shop
         UIAnimations.instance.CloseShop(); //close the shop panel
     }
 
@@ -169,6 +170,8 @@ public class UIController : MonoBehaviour
 
     public void UpgradeSpeed()
     {
+        uiAnimator.Play("BlobSpeed");
+
         if (GameManager.moneyTotal >= speedUpgradeCost) //if the player has enough money
         {
             if (speedUpgCount < maxSpeedUpgrades) //if the stat is not at max level already
@@ -203,6 +206,8 @@ public class UIController : MonoBehaviour
 
     public void UpgradeVacuum()
     {
+        uiAnimator.Play("BlobVacuum");
+
         if (GameManager.moneyTotal >= vacuumUpgradeCost) //if the player has enough money
         {
             if (vacuumUpgCount < maxVacuumUpgrades) //if the stat is not at the max level
@@ -239,6 +244,8 @@ public class UIController : MonoBehaviour
 
     public void UpgradeCapacity()
     {
+        uiAnimator.Play("BlobCapacity");
+
         if (GameManager.moneyTotal >= capacityUpgradeCost) //if the player has enough money
         {
             if (capacityUpgCount < maxCapacityUpgrades) //if the stat is not already at max level

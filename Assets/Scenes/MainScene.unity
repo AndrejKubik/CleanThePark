@@ -450,7 +450,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fd5abfa0a7166f141a62ea860930bc60, type: 2}
+  - {fileID: 2100000, guid: aea87b547cc39254ba027459851a3644, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1120,6 +1120,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 768888338563785519, guid: beffe228068918f4c8c781647f59b1a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.091
+      objectReference: {fileID: 0}
     - target: {fileID: 3962153157523415019, guid: beffe228068918f4c8c781647f59b1a0, type: 3}
       propertyPath: particles.Array.size
       value: 13
@@ -1183,6 +1187,10 @@ PrefabInstance:
     - target: {fileID: 6379480596324627334, guid: beffe228068918f4c8c781647f59b1a0, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768299674189460569, guid: beffe228068918f4c8c781647f59b1a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.091
       objectReference: {fileID: 0}
     - target: {fileID: 8783398429189507637, guid: beffe228068918f4c8c781647f59b1a0, type: 3}
       propertyPath: m_LocalScale.y
@@ -2110,6 +2118,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4518260012497702565, guid: 561e533170d15fd4899947d0e336d235, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5118234178224547270, guid: 561e533170d15fd4899947d0e336d235, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2270,6 +2282,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6473922037066080273, guid: 561e533170d15fd4899947d0e336d235, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7166128966916356970, guid: 561e533170d15fd4899947d0e336d235, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -100
@@ -2280,6 +2296,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8090476679407911364, guid: 561e533170d15fd4899947d0e336d235, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611416067103710040, guid: 561e533170d15fd4899947d0e336d235, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
