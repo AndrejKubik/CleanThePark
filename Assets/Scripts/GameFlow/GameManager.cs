@@ -180,7 +180,6 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             moneyTotal += 1000; //FAKIN CHEATOR
-            camera.SetTrigger("OpenShop");
         }
 
         if (Input.GetKeyDown(KeyCode.C)) currentLevel = 25;

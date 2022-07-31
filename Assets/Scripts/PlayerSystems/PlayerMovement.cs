@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float inputX;
     [SerializeField] private float inputY;
 
+    [SerializeField] private Animator playerAnimator;
+
     private void FixedUpdate()
     {
         //store joystick input values 
@@ -47,6 +49,8 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveForward(float rawSpeed)
     {
+        playerAnimator.SetBool("OnTheMove", true);
+
         rigidbody.velocity = new Vector3(joystick.Direction.x * rawSpeed, rigidbody.velocity.y, joystick.Direction.y * rawSpeed) * Time.deltaTime; //set the velocity of moving forward over time
 
         if (Mathf.Abs(joystick.Direction.x) > Mathf.Abs(joystick.Direction.y)) GameManager.instance.wheelSpeedModifier = Mathf.Abs(joystick.Direction.x);
@@ -59,5 +63,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidbody.velocity = Vector3.MoveTowards(rigidbody.velocity, Vector3.zero, stopTime * Time.deltaTime); //change the velocity vector for the object to slow down 
         if (GameManager.instance.isMoving) GameManager.instance.isMoving = false; //change the movement state if not changed already
+
+        playerAnimator.SetBool("OnTheMove", false);
     }
 }
