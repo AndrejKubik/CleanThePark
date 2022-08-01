@@ -15,6 +15,8 @@ public class UIController : MonoBehaviour
     }
     #endregion
 
+    [SerializeField] private GameObject uiHint;
+
     [SerializeField] private GameObject startButton;
     [SerializeField] private GameObject startMenu;
 
@@ -84,6 +86,11 @@ public class UIController : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && uiHint.activeSelf) uiHint.SetActive(false); //when the player touches the screen while the control instructions are visible, hide the instructions
+    }
+
     public void SetUpgradesCostChanges()
     {
         speedCostChange = shopData.speedUpgradeChange;
@@ -131,7 +138,8 @@ public class UIController : MonoBehaviour
         startMenu.SetActive(false); //hide start menu
         joystick.SetActive(true); //activate the joystick
         menuButton.SetActive(true); //show the pause button
-        Time.timeScale = 1f; //resume game time
+        //Time.timeScale = 1f; //resume game time
+        if (GameManager.currentLevel == 1) uiHint.SetActive(true); //if the player has just started playing the game, show him how to play
 
         AnalyticsManagerr.instance.LevelStart(); //trigger the analytics level start event
     }

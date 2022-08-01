@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3c072db6f8dd546bc6813723320606, type: 3}
   m_Name: ShopControl
   m_EditorClassIdentifier: 
-  speedUpgradeStartCost: 15
+  speedUpgradeStartCost: 10
   vacuumUpgradeStartCost: 50
-  capacityUpgradeStartCost: 20
-  speedUpgradeChange: 70
-  vacuumUpgradeChange: 80
-  capacityUpgradeChange: 70
+  capacityUpgradeStartCost: 15
+  speedUpgradeChange: 60
+  vacuumUpgradeChange: 75
+  capacityUpgradeChange: 55
   moneyGainStart: 1
   moneyGainChange: 2

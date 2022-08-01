@@ -22,6 +22,7 @@ public class SuckingMechanism : MonoBehaviour
         {
             isPulling = true; //trigger the pulling state
             SoundManager.instance.PlayVacuumSound(); //play the suction sound
+            indicatorParticle.SetActive(false);
         }
         else if(other.CompareTag("Proximity") && !GameManager.instance.canPull) //if the garbage piece somehow touches the vacuum from the sides
         {
