@@ -6,6 +6,8 @@ public class DumpsterConfetti : MonoBehaviour
 {
     public void PlayMoneyConfetti()
     {
+        Debug.Log("kurac");
+
         GameManager.instance.deliveryParticles.SetActive(true); //play the delivery particle effect
         SoundManager.instance.PlayDeliverySound(); //play the cha-ching sound
 
