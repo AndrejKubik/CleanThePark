@@ -1349,6 +1349,7 @@ MonoBehaviour:
   moneyCount: {fileID: 5710492859756385085}
   shopData: {fileID: 0}
   uiAnimator: {fileID: 769632691842188587}
+  playerAnimator: {fileID: 0}
   speedAnim: {fileID: 258472990085981206}
   vacuumAnim: {fileID: 3021883880992913238}
   capacityAnim: {fileID: 4474002564367966560}
@@ -1602,8 +1603,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16738816
-  m_fontColor: {r: 0, g: 0.41431522, b: 1, a: 0}
+    rgba: 16746752
+  m_fontColor: {r: 0, g: 0.53821945, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1620,8 +1621,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2383,8 +2384,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16738816
-  m_fontColor: {r: 0, g: 0.41568628, b: 1, a: 0}
+    rgba: 16746752
+  m_fontColor: {r: 0, g: 0.53821945, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2401,8 +2402,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2792,8 +2793,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16738816
-  m_fontColor: {r: 0, g: 0.41568628, b: 1, a: 0}
+    rgba: 16746752
+  m_fontColor: {r: 0, g: 0.53821945, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2810,8 +2811,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3157,7 +3158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -125}
+  m_AnchoredPosition: {x: 300, y: -125}
   m_SizeDelta: {x: 400, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5710492859756385084
@@ -3483,7 +3484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5710492860666785111
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5152,7 +5153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3851408270022491599, guid: 3f2b724cf57dc744cbbd02dcea2511ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartGame
+      value: StartOver
       objectReference: {fileID: 0}
     - target: {fileID: 3851408270022491599, guid: 3f2b724cf57dc744cbbd02dcea2511ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -5321,6 +5322,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 5749711616278860636}
     m_Modifications:
     - target: {fileID: 38077502522059586, guid: ef7c67b167471ac489b08716abfc254a, type: 3}
+      propertyPath: m_text
+      value: Reset Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 38077502522059586, guid: ef7c67b167471ac489b08716abfc254a, type: 3}
       propertyPath: m_fontSize
       value: 75
       objectReference: {fileID: 0}
@@ -5442,11 +5447,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5661103430601686164, guid: ef7c67b167471ac489b08716abfc254a, type: 3}
       propertyPath: m_Name
-      value: ExitButton
+      value: ResetGameButton
       objectReference: {fileID: 0}
     - target: {fileID: 5661103430601686164, guid: ef7c67b167471ac489b08716abfc254a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6924375613998909621, guid: ef7c67b167471ac489b08716abfc254a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6924375613998909621, guid: ef7c67b167471ac489b08716abfc254a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7104020052557598552, guid: ef7c67b167471ac489b08716abfc254a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -5466,7 +5479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7104020052557598552, guid: ef7c67b167471ac489b08716abfc254a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ExitGame
+      value: RestartGame
       objectReference: {fileID: 0}
     - target: {fileID: 7104020052557598552, guid: ef7c67b167471ac489b08716abfc254a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

@@ -73,6 +73,7 @@ public class UIController : MonoBehaviour
         if (GameManager.scenesLoaded == 0) //if the application is just turned on
         {
             startMenu.SetActive(true); //show the start menu
+            Instantiate(SoundManager.instance.bgMusic, Vector3.zero, transform.rotation); //spawn the background music prefab
             GameManager.scenesLoaded++; //increment the first load check
         }
         else
@@ -159,7 +160,16 @@ public class UIController : MonoBehaviour
 
         AnalyticsManagerr.instance.LevelStart(); //trigger the analytics level start event
 
+        Time.timeScale = 1f; //resume game time
+
         SceneManager.LoadScene(0); //load the first level 
+    }
+
+    public void StartOver()
+    {
+        GameManager.currentLevel = 1; //set the next level to be the level 1 to go another round
+        GameManager.instance.SaveGame(); //save the game data
+        SceneManager.LoadScene(0); //reload the scene
     }
 
     public void NextLevel()

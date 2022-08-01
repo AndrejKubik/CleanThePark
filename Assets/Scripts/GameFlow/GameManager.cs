@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     [Header(">>>>>>>>>>>>>>>| AESTHETHIC THINGS |<<<<<<<<<<<<<<<")]
 
-    private float particleDelay = 0.05f;
+    public float stackDelay = 0.05f;
     public float deliveryCooldown;
 
     public GameObject deliveryIndicator;
@@ -185,6 +185,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             moneyTotal += 1000; //FAKIN CHEATOR
+            currentLevel = 11;
         }
     }
 
@@ -225,6 +226,9 @@ public class GameManager : MonoBehaviour
         TurnVacuumOn(); //activate the player's vacuum
         maxCapacityReached = false; //let the player collect garbage again
 
+        yield return new WaitForSeconds(stackDelay * 2f);
+
+        dumpsterAnimator.Play("DumpsterClose"); //play the dumpster opening animation
         yield return new WaitForSeconds(2f);
 
         for (int i = 0; i < deliveryStacks.Count; i++) //destroy every object from the list for removal
@@ -245,7 +249,7 @@ public class GameManager : MonoBehaviour
 
         dumpsterAnimator.Play("DoorsOpen"); //play the dumpster opening animation
         SoundManager.instance.PlayDumpsterSound(); //play the opening sound
-        StartCoroutine(StackRemoval(particleDelay)); //start hiding the stacks one by one
+        StartCoroutine(StackRemoval(stackDelay)); //start hiding the stacks one by one
         stackCount = 0; //reset the current stack counter
 
         canPull = true; //enable garbage pulling again
@@ -302,7 +306,9 @@ public class GameManager : MonoBehaviour
         if(data != null) //if a save file exists
         {
             //change the game flow and stat values to the save file's values
-            currentLevel = data.currentLevel;
+            if (data.currentLevel <= 30) currentLevel = data.currentLevel;
+            else currentLevel = 1;
+
             moneyTotal = data.moneyTotal;
 
             speedLevel = data.speedLevel;

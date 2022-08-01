@@ -579,6 +579,10 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8454658864273501973, guid: 612a31668e919e3469715bd6e74a2513, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 612a31668e919e3469715bd6e74a2513, type: 3}
 --- !u!4 &6715691854187936151 stripped
@@ -2331,6 +2335,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6884204192140661394, guid: 407f04278b8258048a3d9e9103b5917a, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818950069594224003, guid: 407f04278b8258048a3d9e9103b5917a, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818950069594224003, guid: 407f04278b8258048a3d9e9103b5917a, type: 3}
+      propertyPath: m_Center.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
