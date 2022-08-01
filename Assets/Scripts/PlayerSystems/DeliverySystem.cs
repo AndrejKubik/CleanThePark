@@ -10,7 +10,7 @@ public class DeliverySystem : MonoBehaviour
     {
         if (other.CompareTag("Body") && GameManager.instance.stackCount > 0) //when the player enters the delivery indicator field
         {
-            particles[GameManager.instance.stackCount - 1].SetActive(true); //show the proper particle according to the player's stack count
+            //particles[GameManager.instance.stackCount - 1].SetActive(true); //show the proper particle according to the player's stack count
 
             GameManager.instance.DeliverStacks(); //start the stack delivery particles and garbage-to-money transactions
 

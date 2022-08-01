@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PathCreation.Examples;
+using PathCreation;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,8 +26,11 @@ public class GameManager : MonoBehaviour
     [Header(">>>>>>>>>>>>>>>| STACK OBJECTS AND STACK COUNTERS |<<<<<<<<<<<<<<<")]
 
     public List<GameObject> stacks;
+    public GameObject stackPrefab;
     public int collectedCount;
     public int stackCount;
+    public List<PathCreator> paths;
+    public List<GameObject> deliveryStacks;
 
     [Header(">>>>>>>>>>>>>>>| MONEY VALUES |<<<<<<<<<<<<<<<")]
 
@@ -181,8 +186,6 @@ public class GameManager : MonoBehaviour
         {
             moneyTotal += 1000; //FAKIN CHEATOR
         }
-
-        if (Input.GetKeyDown(KeyCode.C)) currentLevel = 25;
     }
 
     public void SpawnStackObject()
@@ -194,19 +197,44 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StackRemoval(float delay)
     {
-        canMove = false; //stop the player from moving 
+        //canMove = false; //stop the player from moving 
         TurnVacuumOff(); //deactivate the player's vacuum
+
+        StackPathUpdater.deliveryTriggered = true;
+
         for(int i = stackCount - 1; i >= 0; i--) //for every active player stack
         {
             stacks[i].SetActive(false); //turn off the current box
+
             moneyTotal += moneyGain; //transmute garbage to money
+
             moneyAnimator.Play("MoneyBlob"); //play the money animation
+
             UIController.instance.moneyCount.text = moneyTotal.ToString(); //update the money on UI
+
+            //GameObject deliveryStack = Instantiate(stackPrefab, stacks[i].transform.position, transform.rotation); //spawn of prefab at the according position spot and store it in a variable
+            GameObject deliveryStack = Instantiate(stackPrefab, paths[i].bezierPath.GetPoint(0), transform.rotation);
+            deliveryStack.GetComponent<PathFollower>().pathCreator = paths[i]; //set the movement path of the object to the path of the current element
+            deliveryStacks.Add(deliveryStack); //add the current stack to the list for removal
+
             yield return new WaitForSeconds(delay); //ayo hol' up
         }
-        canMove = true; //let the player move again
+
+        StackPathUpdater.deliveryTriggered = false;
+
         TurnVacuumOn(); //activate the player's vacuum
         maxCapacityReached = false; //let the player collect garbage again
+
+        yield return new WaitForSeconds(2f);
+
+        for (int i = 0; i < deliveryStacks.Count; i++) //destroy every object from the list for removal
+        {
+            Destroy(deliveryStacks[i]); 
+        }
+
+        deliveryStacks.Clear(); //empty the list
+
+        //canMove = true; //let the player move again
     }
 
     public void DeliverStacks()

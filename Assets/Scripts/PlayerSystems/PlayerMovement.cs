@@ -43,6 +43,10 @@ public class PlayerMovement : MonoBehaviour
         {
             Quaternion lookRotation = Quaternion.LookRotation(lookDirection, Vector3.up); //calculate the target quaternion value to rotate towards
 
+            Vector2 joystickPosition = new Vector2(inputX, inputY);
+
+            //transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, rotationSpeed * joystickPosition.magnitude * Time.deltaTime); //actually rotate the player towards the calculated direction
+
             transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime); //actually rotate the player towards the calculated direction
         }
     }
