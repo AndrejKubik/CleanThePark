@@ -17,7 +17,8 @@ public class UIController : MonoBehaviour
 
     [SerializeField] private GameObject uiHint;
 
-    [SerializeField] private GameObject startButton;
+    public GameObject startButton;
+    public TextMeshProUGUI continueButtonText;
     [SerializeField] private GameObject startMenu;
 
     [SerializeField] private GameObject menuButton;

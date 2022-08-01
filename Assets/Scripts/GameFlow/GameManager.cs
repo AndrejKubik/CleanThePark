@@ -329,6 +329,8 @@ public class GameManager : MonoBehaviour
         }
         else //if there is no save file yet
         {
+            UIController.instance.startButton.SetActive(false); //if the game has been turned on for the first time, hide the reset button
+            UIController.instance.continueButtonText.text = "Start Game"; //change the text of the continues game button
             ResetGame(); //reset all the game values to default
         }
     }

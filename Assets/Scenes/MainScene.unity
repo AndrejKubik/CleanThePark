@@ -463,6 +463,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &158766293 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4707160899848052037, guid: 561e533170d15fd4899947d0e336d235, type: 3}
+  m_PrefabInstance: {fileID: 5710492860541333819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &184949276 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8041337845099865496, guid: dc49ec3b5b5964e41b8190e96efd91fc, type: 3}
@@ -775,6 +786,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1707887634221069182, guid: dc49ec3b5b5964e41b8190e96efd91fc, type: 3}
   m_PrefabInstance: {fileID: 620159469937393567}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &337587941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2390473545878676338, guid: 561e533170d15fd4899947d0e336d235, type: 3}
+  m_PrefabInstance: {fileID: 5710492860541333819}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &358113170 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 552801851705307131, guid: dc49ec3b5b5964e41b8190e96efd91fc, type: 3}
@@ -827,7 +843,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.56312054, y: 1}
+    m_SensorSize: {x: 0.5624309, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4086,9 +4102,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: f17218bebb904a6489456f14064c5cd8, type: 2}
     - target: {fileID: 5710492860179951644, guid: 561e533170d15fd4899947d0e336d235, type: 3}
+      propertyPath: continueButton
+      value: 
+      objectReference: {fileID: 337587941}
+    - target: {fileID: 5710492860179951644, guid: 561e533170d15fd4899947d0e336d235, type: 3}
       propertyPath: playerAnimator
       value: 
       objectReference: {fileID: 2062495333}
+    - target: {fileID: 5710492860179951644, guid: 561e533170d15fd4899947d0e336d235, type: 3}
+      propertyPath: continueButtonText
+      value: 
+      objectReference: {fileID: 158766293}
     - target: {fileID: 5710492860493247607, guid: 561e533170d15fd4899947d0e336d235, type: 3}
       propertyPath: m_RootOrder
       value: 5
