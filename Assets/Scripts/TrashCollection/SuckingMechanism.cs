@@ -8,6 +8,8 @@ public class SuckingMechanism : MonoBehaviour
     private bool isGrounded;
     private Rigidbody rb;
 
+    [SerializeField] private GameObject indicatorParticle;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>(); //store the object's rigidbody component
@@ -55,6 +57,8 @@ public class SuckingMechanism : MonoBehaviour
         if(isPulling) PullTrash(); //if the pulling has been triggered start pulling the trash
 
         if (!GameManager.instance.canPull) isPulling = false; //if the pulling is disabled, stop pulling garbage
+
+        if ((GameManager.instance.garbageCount - GameManager.instance.destroyCounter) <= 5) indicatorParticle.SetActive(true);
     }
 
     void PullTrash()

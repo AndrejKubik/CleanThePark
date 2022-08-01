@@ -185,7 +185,6 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             moneyTotal += 1000; //FAKIN CHEATOR
-            currentLevel = 11;
         }
     }
 
