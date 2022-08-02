@@ -843,7 +843,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5624309, y: 1}
+    m_SensorSize: {x: 0.5625, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3096,6 +3096,7 @@ MonoBehaviour:
   moneyAnimator: {fileID: 445689031}
   dumpsterAnimator: {fileID: 1542844430}
   deliveryParticles: {fileID: 518967910}
+  moneyParticles: {fileID: 837396742599812513, guid: b5edf446f10e42b47bcd4eee9506ddfa, type: 3}
   vacuumParticles: {fileID: 1022826205}
   popupPosition: {fileID: 1028587136}
   capFull: {fileID: 6722958758866668348, guid: c3e29f4a1090460428745556a1bd4d12, type: 3}

@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     public Animator moneyAnimator;
     public Animator dumpsterAnimator;
     public GameObject deliveryParticles;
+    public GameObject moneyParticles;
     public GameObject vacuumParticles;
 
     private bool soundPlayed;
@@ -227,7 +228,11 @@ public class GameManager : MonoBehaviour
             deliveryStack.GetComponent<PathFollower>().pathCreator = paths[i]; //set the movement path of the object to the path of the current element
             deliveryStacks.Add(deliveryStack); //add the current stack to the list for removal
 
-            yield return new WaitForSeconds(delay); //ayo hol' up
+            yield return new WaitForSeconds(delay / 2f); //ayo hol' up
+
+            Instantiate(moneyParticles, deliveryParticles.transform.position, transform.rotation);
+
+            yield return new WaitForSeconds(delay / 2f); //ayo hol' up
         }
 
         StackPathUpdater.deliveryTriggered = false;
