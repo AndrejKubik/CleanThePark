@@ -193,6 +193,8 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3)) currentLevel = 22; //forest
         if (Input.GetKeyDown(KeyCode.Alpha4)) currentLevel = 26; //forest
 
+        if (Input.GetKeyDown(KeyCode.S)) SaveGame(); //forest
+
         #endregion
     }
 
