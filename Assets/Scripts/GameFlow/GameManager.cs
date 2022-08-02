@@ -182,10 +182,18 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        #region Cheats
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             moneyTotal += 1000; //FAKIN CHEATOR
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1)) currentLevel = 15; //beach
+        if (Input.GetKeyDown(KeyCode.Alpha2)) currentLevel = 18; //beach
+        if (Input.GetKeyDown(KeyCode.Alpha3)) currentLevel = 22; //forest
+        if (Input.GetKeyDown(KeyCode.Alpha4)) currentLevel = 26; //forest
+
+        #endregion
     }
 
     public void SpawnStackObject()
